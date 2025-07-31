@@ -1,8 +1,8 @@
 // src/index.ts
 import express, { Express, Request, Response } from 'express';
-// import dotenv from 'dotenv';
+import dotenv from 'dotenv';
 
-// dotenv.config();
+dotenv.config();
 
 const app: Express = express();
 const port = process.env.PORT || 3000;
