@@ -1,0 +1,27 @@
+{
+  "name": "securechatvault",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "start": "node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoseCarlos00/SecureChatVault.git"
+  },
+  "author": "Jose Carlos Aguirre",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JoseCarlos00/SecureChatVault/issues"
+  },
+  "homepage": "https://github.com/JoseCarlos00/SecureChatVault#readme",
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.1.0",
+    "express": "^5.1.0",
+    "typescript": "^5.8.3"
+  }
+}
