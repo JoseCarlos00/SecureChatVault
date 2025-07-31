@@ -42,11 +42,6 @@ export const login = async (req: Request, res: Response) => {
 		// Ahora tenemos la garantía de que JWT_SECRET existe gracias a la verificación en index.ts
 		const { username, password } = req.body;
 
-		console.log({ username, password });
-		console.log({testUser});
-		
-		
-
 		const userIsValid = await verifyUser(username, password);
 
 		if (!userIsValid) {
@@ -55,7 +50,11 @@ export const login = async (req: Request, res: Response) => {
 
     const token = jwt.sign({ username, role: 'user' }, JWT_SECRET!, { expiresIn: '1h' });
 
-    res.json({ token });
+    if (!token) {
+			return res.status(500).json({ error: 'Failed to generate token' });
+		}
+
+		res.json({ token });
 	} catch (error) {
 		console.error('Unexpected error during login:', error);
 		res.status(500).json({ error: 'An unexpected error occurred' });
