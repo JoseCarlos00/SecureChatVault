@@ -6,7 +6,10 @@ import { verifyToken } from '../middlewares/verifyToken';
 
 const router: Router = express.Router();
 
-router.get('/', login);
+router.get('/', (req: Request, res: Response)=> {
+	res.send('Login');
+});
+
 router.post('/', login);
 
 router.get('/register', (req: Request, res: Response) => {

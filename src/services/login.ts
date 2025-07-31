@@ -1,5 +1,5 @@
 import  { Request, Response } from 'express';
-import bcryptjs from 'bcryptjs';
+import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 
@@ -7,7 +7,7 @@ dotenv.config();
 
 const testUser = {
 	username: 'user1234',
-	password: '$2a$12$AgvtP6p4iHNng/WIrbSNfuq1GCscOMDcsF8fq1IAzASHrzd3nSqC2',
+	password: '$2b$10$tIEmXBwKkI6kqqvwNpgg2emZy.w6z452EHQSvh/CnA3jlR9RS5Rum',
 };
 
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -18,14 +18,34 @@ const verifyUser = async (username: string, password: string) => {
 	}
 
 	// Si el usuario existe, comparamos la contraseña
-  const validePassword = await bcryptjs.compare(password, testUser.password);
-	return validePassword;
+  const validePassword = await bcrypt.compare(password, testUser.password);
+	if (!validePassword) {
+		return false; // La contraseña es incorrecta
+	}
+
+	return true; 
 };
+
+async function createHashedPassword(password: string) {
+	const saltRounds = 10; // Recommended for production
+	try {
+		const hashedPassword = await bcrypt.hash(password, saltRounds);
+		console.log('Hashed Password:', hashedPassword);
+		return hashedPassword;
+	} catch (error) {
+		console.error('Error hashing password:', error);
+	}
+}
 
 export const login = async (req: Request, res: Response) => {
 	try {
 		// Ahora tenemos la garantía de que JWT_SECRET existe gracias a la verificación en index.ts
 		const { username, password } = req.body;
+
+		console.log({ username, password });
+		console.log({testUser});
+		
+		
 
 		const userIsValid = await verifyUser(username, password);
 
