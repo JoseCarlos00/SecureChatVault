@@ -1,0 +1,9 @@
+{
+  "sender": "yo",
+  "text": "Aquí tienes la imagen:",
+  "timestamp": "2025-07-30T18:05:00Z",
+  "type": "image",
+  "mediaUrl": "https://tu-bucket-seguro.s3.amazonaws.com/conversacion/imagen-sensible-123.jpg",
+  "caption": "Esta es una foto muy especial."
+}
+
