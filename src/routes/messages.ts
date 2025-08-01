@@ -9,6 +9,9 @@ router.get('/', (req: Request, res: Response) => {
 	// Podemos usarlo para personalizar la respuesta o buscar mensajes específicos para ese usuario.
 	const username = req.user?.username;
 
+	console.log(req.cookies);
+	
+
 	res.json({
 		message: `Hola, ${username}! Aquí están tus mensajes secretos.`,
 		data: [{ id: 1, text: 'Este es el primer mensaje.' }, { id: 2, text: 'Recuerda comprar leche.' }],
