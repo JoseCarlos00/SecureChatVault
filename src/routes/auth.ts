@@ -7,4 +7,9 @@ router.post('/login', login);
 router.post('/refresh', refreshToken);
 router.post('/logout', logout);
 
+router.post('/register', (_req, res) => {
+	res.send('Register');
+});
+
+
 export default router;

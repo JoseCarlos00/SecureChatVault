@@ -5,19 +5,45 @@ import { generateAccessToken, generateRefreshToken, verifyRefreshToken } from '.
 const users = [
 	{
 		username: 'user1234',
-		password: '$2b$10$tIEmXBwKkI6kqqvwNpgg2emZy.w6z452EHQSvh/CnA3jlR9RS5Rum', // 1234
+		password: '$2b$10$KQcjH4DOzlcseumlc0vEtu9SL5hXTr3RHrluY1AghX/jVzkxNXVlm',
 	},
 ];
+
+async function createHashedPassword(password: string) {
+	const saltRounds = 10; // Recommended for production
+	try {
+		const hashedPassword = await bcrypt.hash(password, saltRounds);
+		console.log('Hashed Password:', hashedPassword);
+		return hashedPassword;
+	} catch (error) {
+		console.error('Error hashing password:', error);
+	}
+}
+
+// createHashedPassword('password');
+
 
 const verifyUser = async (username: string, password: string) => {
 	const user = users.find((u) => u.username === username);
 	if (!user) return false;
 
-	return await bcrypt.compare(password, user.password);
+	const valid = await bcrypt.compare(password, user.password);
+	if (!valid) return false;
+
+	return true;
 };
 
 export const login = async (req: Request, res: Response) => {
+	if (!req.body) {
+		return res.status(400).json({ error: 'Request body is missing' });
+	}
+	
 	const { username, password } = req.body;
+
+
+	if (!username || !password) {
+		return res.status(400).json({ error: 'Username and password are required' });
+	}
 
 	const valid = await verifyUser(username, password);
 	if (!valid) {
@@ -29,17 +55,17 @@ export const login = async (req: Request, res: Response) => {
 	const refreshToken = generateRefreshToken(payload);
 
 	res.cookie('refreshToken', refreshToken, {
-		httpOnly: true,
-		sameSite: 'strict',
-		secure: true,
+		// httpOnly: true,
+		// sameSite: 'lax',
+		// secure: false,
 		maxAge: 7 * 24 * 60 * 60 * 1000, // 7 días
 	});
 
-	res.json({ accessToken });
+	res.json({ accessToken, payload, message: 'Inicio de sesión exitoso' });
 };
 
 export const refreshToken = (req: Request, res: Response) => {
-	const token = req.cookies.refreshToken;
+	const token = req?.cookies?.refreshToken;
 	if (!token) return res.status(401).json({ error: 'Refresh token missing' });
 
 	try {
