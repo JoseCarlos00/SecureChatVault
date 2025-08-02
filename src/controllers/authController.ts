@@ -22,7 +22,6 @@ async function createHashedPassword(password: string) {
 
 // createHashedPassword('password');
 
-
 const verifyUser = async (username: string, password: string) => {
 	const user = users.find((u) => u.username === username);
 	if (!user) return false;
@@ -55,9 +54,9 @@ export const login = async (req: Request, res: Response) => {
 	const refreshToken = generateRefreshToken(payload);
 
 	res.cookie('refreshToken', refreshToken, {
-		// httpOnly: true,
-		// sameSite: 'lax',
-		// secure: false,
+		httpOnly: true,
+		sameSite: 'lax',
+		secure: false, // ⚠️ SOLO para localhost sin HTTPS
 		maxAge: 7 * 24 * 60 * 60 * 1000, // 7 días
 	});
 

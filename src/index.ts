@@ -8,27 +8,30 @@ import authRoutes from './routes/auth'; // Rutas de autenticación
 import messagesRouter from './routes/messages'; // Nuevas rutas protegidas para mensajes
 import { verifyToken } from './middlewares/verifyToken';
 
+import { config } from "./config/config";
+
 dotenv.config();
 
 // Validar las variables de entorno críticas al arrancar.
-if (!process.env.JWT_SECRET) {
+if (!config.JWT_SECRET) {
 	console.error('FATAL ERROR: JWT_SECRET is not defined in the .env file.');
 	process.exit(1);
 }
 
 
 const app: Express = express();
-const port = process.env.PORT || 3000;
+const port = config.PORT;
 
 app.use(
 	cors({
 		origin: 'http://127.0.0.1:5500',
+		methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 		credentials: true, // si estás usando cookies
 	})
 );
 
-app.use(express.json())
 app.use(cookieParser());
+app.use(express.json());
 
 // Rutas PÚBLICAS, no necesitan token.
 app.use('/api/auth', authRoutes);
