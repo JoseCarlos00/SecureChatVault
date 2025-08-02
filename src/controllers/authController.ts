@@ -55,8 +55,8 @@ export const login = async (req: Request, res: Response) => {
 
 	res.cookie('refreshToken', refreshToken, {
 		httpOnly: true,
-		sameSite: 'lax',
-		secure: false, // ⚠️ SOLO para localhost sin HTTPS
+		sameSite: 'none',
+		secure: true, // ⚠️ Esto requiere que tu backend se sirva sobre HTTPS.
 		maxAge: 7 * 24 * 60 * 60 * 1000, // 7 días
 	});
 
