@@ -27,9 +27,9 @@ const PORT = config.PORT;
 
 app.use(
 	cors({
-		origin: 'http://127.0.0.1:5500',
+		origin: config.FRONTEND_URL,
 		methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-		credentials: true, // si estás usando cookies
+		credentials: true,
 	})
 );
 

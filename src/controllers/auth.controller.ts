@@ -70,7 +70,7 @@ export const refreshToken = (req: Request, res: Response) => {
 	try {
 		const payload = verifyRefreshToken(token);
 		const accessToken = generateAccessToken({ username: payload.username, role: payload.role });
-		res.json({ accessToken });
+		res.json({ accessToken, payload, message: 'Token refreshed successfully' });
 	} catch (err) {
 		res.status(401).json({ error: 'Invalid refresh token' });
 	}

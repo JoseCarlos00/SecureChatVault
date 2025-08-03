@@ -16,4 +16,5 @@ export const config = {
 	ACCESS_TOKEN_EXPIRE: getEnvVar('ACCESS_TOKEN_EXPIRE'),
 	REFRESH_TOKEN_EXPIRE: getEnvVar('REFRESH_TOKEN_EXPIRE'),
 	PORT: getEnvVar('PORT'),
+	FRONTEND_URL: getEnvVar('FRONTEND_URL'),
 };
