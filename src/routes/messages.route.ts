@@ -1,8 +1,8 @@
 import express, { Router, Request, Response } from 'express';
-import { getAllMessages } from '../controllers/messages.controller';
+import { findMessages } from '../controllers/messages.controller';
 
 const router: Router = express.Router();
 
-router.get('/', getAllMessages);
+router.get('/', findMessages);
 
 export default router;

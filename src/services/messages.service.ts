@@ -1,19 +1,20 @@
 import fs from 'node:fs';
 
 const messagesFilePath = 'src/models/messages.json';
-let messages: any[] = [];
+let messagesData: any[] = [];
 
 try {
 	const data = fs.readFileSync(messagesFilePath, 'utf8');
 	
-	messages = JSON.parse(data);
-	console.log('Mensajes cargados:', messages.length);
+	messagesData = JSON.parse(data);
+	console.log('Mensajes cargados:', messagesData.length);
 } catch (err) {
 	console.error('Error al leer messages.json:', err);
-	messages = [];
+	messagesData = [];
 }
 
-console.log('Mensajes iniciales:', messages);
+console.log('Mensajes iniciales:', messagesData);
 
-export const getMessages = () => messages;
+// getMessagesFromDB
+export const loadMessagesFromFile = () => messagesData;
 
