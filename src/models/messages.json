@@ -1,51 +1,437 @@
 [
+	  {
+    "_id": "001",
+    "sender": "me",
+    "timestamp": "2025-01-05T10:15:00Z",
+    "type": "text",
+    "content": "Primer mensaje del año"
+  },
   {
-		"_id": "648a3e74c871f3014a9b6c00",
+    "_id": "002",
+    "sender": "other",
+    "timestamp": "2025-01-05T10:17:00Z",
+    "type": "text",
+    "content": "¡Feliz año nuevo!"
+  },
+  {
+    "_id": "003",
+    "sender": "me",
+    "timestamp": "2025-02-10T08:45:00Z",
+    "type": "image",
+    "mediaUrl": "https://bucket/media/foto_febrero.jpg",
+    "caption": "Día nublado en la ciudad"
+  },
+  {
+    "_id": "004",
+    "sender": "other",
+    "timestamp": "2025-02-10T08:46:00Z",
+    "type": "sticker",
+    "mediaUrl": "https://bucket/stickers/sticker_1.webp"
+  },
+  {
+    "_id": "005",
+    "sender": "me",
+    "timestamp": "2025-03-03T14:20:00Z",
+    "type": "audio",
+    "mediaUrl": "https://bucket/audio/audio1.mp3",
+    "duration": 30
+  },
+  {
+    "_id": "006",
+    "sender": "other",
+    "timestamp": "2025-03-03T14:22:00Z",
+    "type": "text",
+    "content": "Te escucho bien."
+  },
+  {
+    "_id": "007",
+    "sender": "me",
+    "timestamp": "2025-03-15T18:05:00Z",
+    "type": "text",
+    "content": "¿Viste las noticias hoy?"
+  },
+  {
+    "_id": "008",
+    "sender": "other",
+    "timestamp": "2025-04-01T09:30:00Z",
+    "type": "video",
+    "mediaUrl": "https://bucket/video/abril.mp4",
+    "caption": "Resumen del mes",
+    "duration": 90,
+    "thumbnailUrl": "https://bucket/thumbs/abril.jpg"
+  },
+  {
+    "_id": "009",
+    "sender": "me",
+    "timestamp": "2025-04-02T11:00:00Z",
+    "type": "file",
+    "mediaUrl": "https://bucket/files/report.pdf",
+    "filename": "report.pdf"
+  },
+  {
+    "_id": "010",
+    "sender": "other",
+    "timestamp": "2025-04-03T08:15:00Z",
+    "type": "text",
+    "content": "Gracias por el archivo"
+  },
+  {
+    "_id": "011",
+    "sender": "me",
+    "timestamp": "2025-05-05T15:30:00Z",
+    "type": "text",
+    "content": "Comenzamos mayo con energía"
+  },
+  {
+    "_id": "012",
+    "sender": "other",
+    "timestamp": "2025-05-05T15:31:00Z",
+    "type": "image",
+    "mediaUrl": "https://bucket/media/mayo.jpg",
+    "caption": "Foto del día"
+  },
+  {
+    "_id": "013",
+    "sender": "me",
+    "timestamp": "2025-05-10T07:45:00Z",
+    "type": "sticker",
+    "mediaUrl": "https://bucket/stickers/mayo_sticker.webp"
+  },
+  {
+    "_id": "014",
+    "sender": "other",
+    "timestamp": "2025-06-01T12:00:00Z",
+    "type": "audio",
+    "mediaUrl": "https://bucket/audio/junio.mp3",
+    "duration": 55
+  },
+  {
+    "_id": "015",
+    "sender": "me",
+    "timestamp": "2025-06-02T13:30:00Z",
+    "type": "video",
+    "mediaUrl": "https://bucket/video/junio.mp4",
+    "caption": "Evento importante",
+    "duration": 130,
+    "thumbnailUrl": "https://bucket/thumbs/junio.jpg"
+  },
+  {
+    "_id": "016",
+    "sender": "me",
+    "timestamp": "2025-06-15T09:30:00Z",
+    "type": "text",
+    "content": "Mitad de año"
+  },
+  {
+    "_id": "017",
+    "sender": "other",
+    "timestamp": "2025-07-04T16:45:00Z",
+    "type": "text",
+    "content": "Ya casi vacaciones"
+  },
+  {
+    "_id": "018",
+    "sender": "me",
+    "timestamp": "2025-07-10T10:10:00Z",
+    "type": "image",
+    "mediaUrl": "https://bucket/media/julio1.jpg",
+    "caption": "Vista al mar"
+  },
+  {
+    "_id": "019",
+    "sender": "other",
+    "timestamp": "2025-07-11T11:11:00Z",
+    "type": "sticker",
+    "mediaUrl": "https://bucket/stickers/verano.webp"
+  },
+  {
+    "_id": "020",
+    "sender": "me",
+    "timestamp": "2025-08-01T14:30:00Z",
+    "type": "text",
+    "content": "Hello, how are you doing today?"
+  },
+  {
+    "_id": "021",
+    "sender": "other",
+    "timestamp": "2025-08-01T14:32:00Z",
+    "type": "text",
+    "content": "I'm great, thanks! You?",
+    "replyTo": "020"
+  },
+  {
+    "_id": "022",
+    "sender": "me",
+    "timestamp": "2025-08-01T14:35:00Z",
+    "type": "image",
+    "mediaUrl": "https://tu-bucket.s3.amazonaws.com/media/photo_123.jpg",
+    "caption": "Check out this beautiful sunset!",
+    "replyTo": "021"
+  },
+  {
+    "_id": "023",
+    "sender": "other",
+    "timestamp": "2025-08-01T14:40:00Z",
+    "type": "audio",
+    "mediaUrl": "https://tu-bucket.s3.amazonaws.com/media/voice_note_1.mp3",
+    "duration": 45
+  },
+  {
+    "_id": "024",
+    "sender": "me",
+    "timestamp": "2025-08-01T14:45:00Z",
+    "type": "video",
+    "mediaUrl": "https://tu-bucket.s3.amazonaws.com/media/video_456.mp4",
+    "caption": "A fun video from my trip.",
+    "duration": 120,
+    "thumbnailUrl": "https://tu-bucket.s3.amazonaws.com/media/video_456_thumb.jpg"
+  },
+  {
+    "_id": "025",
+    "sender": "other",
+    "timestamp": "2025-08-01T14:46:00Z",
+    "type": "sticker",
+    "mediaUrl": "https://tu-bucket.s3.amazonaws.com/stickers/my_sticker_7.webp"
+  },
+	{
+		"_id": "msg_001",
+		"sender": "me",
+		"timestamp": "2025-01-10T08:15:00Z",
+		"type": "text",
+		"content": "¡Feliz año nuevo!"
+	},
+	{
+		"_id": "msg_002",
+		"sender": "other",
+		"timestamp": "2025-01-11T09:30:00Z",
+		"type": "text",
+		"content": "Gracias, igualmente."
+	},
+	{
+		"_id": "msg_003",
+		"sender": "me",
+		"timestamp": "2025-02-05T14:00:00Z",
+		"type": "image",
+		"mediaUrl": "https://bucket/img1.jpg",
+		"caption": "Paisaje nevado"
+	},
+	{
+		"_id": "msg_004",
+		"sender": "other",
+		"timestamp": "2025-02-10T16:30:00Z",
+		"type": "audio",
+		"mediaUrl": "https://bucket/audio1.mp3",
+		"duration": 60
+	},
+	{
+		"_id": "msg_005",
+		"sender": "me",
+		"timestamp": "2025-02-12T10:45:00Z",
+		"type": "text",
+		"content": "¿Escuchaste el audio?"
+	},
+	{
+		"_id": "msg_006",
+		"sender": "other",
+		"timestamp": "2025-03-01T12:00:00Z",
+		"type": "sticker",
+		"mediaUrl": "https://bucket/sticker1.webp"
+	},
+	{
+		"_id": "msg_007",
+		"sender": "me",
+		"timestamp": "2025-03-02T14:20:00Z",
+		"type": "video",
+		"mediaUrl": "https://bucket/video1.mp4",
+		"caption": "Concierto en vivo",
+		"duration": 90,
+		"thumbnailUrl": "https://bucket/video1_thumb.jpg"
+	},
+	{
+		"_id": "msg_008",
+		"sender": "other",
+		"timestamp": "2025-03-05T09:00:00Z",
+		"type": "text",
+		"content": "Me encantó ese video."
+	},
+	{
+		"_id": "msg_009",
+		"sender": "me",
+		"timestamp": "2025-04-12T11:00:00Z",
+		"type": "image",
+		"mediaUrl": "https://bucket/photo_april.jpg",
+		"caption": "Flores de primavera"
+	},
+	{
+		"_id": "msg_010",
+		"sender": "other",
+		"timestamp": "2025-04-15T15:30:00Z",
+		"type": "text",
+		"content": "Hermosa foto."
+	},
+	{
+		"_id": "msg_011",
+		"sender": "me",
+		"timestamp": "2025-04-20T18:00:00Z",
+		"type": "audio",
+		"mediaUrl": "https://bucket/audio_april.mp3",
+		"duration": 30
+	},
+	{
+		"_id": "msg_012",
+		"sender": "me",
+		"timestamp": "2025-05-01T10:10:00Z",
+		"type": "text",
+		"content": "¡Ya es mayo!"
+	},
+	{
+		"_id": "msg_013",
+		"sender": "other",
+		"timestamp": "2025-05-02T14:00:00Z",
+		"type": "text",
+		"content": "Se pasa volando."
+	},
+	{
+		"_id": "msg_014",
+		"sender": "me",
+		"timestamp": "2025-05-05T17:25:00Z",
+		"type": "sticker",
+		"mediaUrl": "https://bucket/sticker_mayo.webp"
+	},
+	{
+		"_id": "msg_015",
+		"sender": "other",
+		"timestamp": "2025-05-08T19:45:00Z",
+		"type": "video",
+		"mediaUrl": "https://bucket/video_mayo.mp4",
+		"caption": "Un paseo por el bosque",
+		"duration": 75,
+		"thumbnailUrl": "https://bucket/video_mayo_thumb.jpg"
+	},
+	{
+		"_id": "msg_016",
+		"sender": "me",
+		"timestamp": "2025-05-10T22:00:00Z",
+		"type": "image",
+		"mediaUrl": "https://bucket/foto_mayo.jpg",
+		"caption": "Día de campo"
+	},
+	{
+		"_id": "msg_017",
+		"sender": "other",
+		"timestamp": "2025-06-01T08:15:00Z",
+		"type": "text",
+		"content": "Junio ya está aquí."
+	},
+	{
+		"_id": "msg_018",
+		"sender": "me",
+		"timestamp": "2025-06-03T11:00:00Z",
+		"type": "text",
+		"content": "¡Mitad de año!"
+	},
+	{
+		"_id": "msg_019",
+		"sender": "me",
+		"timestamp": "2025-06-06T15:10:00Z",
+		"type": "audio",
+		"mediaUrl": "https://bucket/audio_junio.mp3",
+		"duration": 40
+	},
+	{
+		"_id": "msg_020",
+		"sender": "other",
+		"timestamp": "2025-06-10T18:30:00Z",
+		"type": "video",
+		"mediaUrl": "https://bucket/video_junio.mp4",
+		"caption": "Tarde en el parque",
+		"duration": 60,
+		"thumbnailUrl": "https://bucket/video_junio_thumb.jpg"
+	},
+	{
+		"_id": "msg_021",
+		"sender": "me",
+		"timestamp": "2025-07-01T10:00:00Z",
+		"type": "text",
+		"content": "Empieza julio con calor."
+	},
+	{
+		"_id": "msg_022",
+		"sender": "other",
+		"timestamp": "2025-07-02T12:20:00Z",
+		"type": "image",
+		"mediaUrl": "https://bucket/foto_julio1.jpg",
+		"caption": "Día soleado"
+	},
+	{
+		"_id": "msg_023",
+		"sender": "me",
+		"timestamp": "2025-07-03T16:40:00Z",
+		"type": "sticker",
+		"mediaUrl": "https://bucket/sticker_julio.webp"
+	},
+	{
+		"_id": "msg_024",
+		"sender": "other",
+		"timestamp": "2025-07-04T19:00:00Z",
+		"type": "text",
+		"content": "Qué calor hace."
+	},
+	{
+		"_id": "msg_025",
+		"sender": "me",
+		"timestamp": "2025-07-05T22:15:00Z",
+		"type": "audio",
+		"mediaUrl": "https://bucket/audio_julio.mp3",
+		"duration": 50
+	},
+	{
+		"_id": "msg_026",
 		"sender": "me",
 		"timestamp": "2025-08-01T14:30:00Z",
 		"type": "text",
 		"content": "Hello, how are you doing today?"
 	},
 	{
-		"_id": "648a3e74c871f3014a9b6c01",
+		"_id": "msg_027",
 		"sender": "other",
 		"timestamp": "2025-08-01T14:32:00Z",
 		"type": "text",
 		"content": "I'm great, thanks! You?",
-		"replyTo": "648a3e74c871f3014a9b6c00"
+		"replyTo": "msg_026"
 	},
 	{
-		"_id": "648a3e74c871f3014a9b6c02",
+		"_id": "msg_028",
 		"sender": "me",
 		"timestamp": "2025-08-01T14:35:00Z",
 		"type": "image",
-		"mediaUrl": "https://tu-bucket.s3.amazonaws.com/media/photo_123.jpg",
+		"mediaUrl": "https://bucket/photo_123.jpg",
 		"caption": "Check out this beautiful sunset!",
-		"replyTo": "648a3e74c871f3014a9b6c01"
+		"replyTo": "msg_027"
 	},
 	{
-		"_id": "648a3e74c871f3014a9b6c03",
+		"_id": "msg_029",
 		"sender": "other",
 		"timestamp": "2025-08-01T14:40:00Z",
 		"type": "audio",
-		"mediaUrl": "https://tu-bucket.s3.amazonaws.com/media/voice_note_1.mp3",
+		"mediaUrl": "https://bucket/voice_note_1.mp3",
 		"duration": 45
 	},
 	{
-		"_id": "648a3e74c871f3014a9b6c04",
+		"_id": "msg_030",
 		"sender": "me",
 		"timestamp": "2025-08-01T14:45:00Z",
 		"type": "video",
-		"mediaUrl": "https://tu-bucket.s3.amazonaws.com/media/video_456.mp4",
+		"mediaUrl": "https://bucket/video_456.mp4",
 		"caption": "A fun video from my trip.",
 		"duration": 120,
-		"thumbnailUrl": "https://tu-bucket.s3.amazonaws.com/media/video_456_thumb.jpg"
+		"thumbnailUrl": "https://bucket/video_456_thumb.jpg"
 	},
 	{
-		"_id": "648a3e74c871f3014a9b6c05",
+		"_id": "msg_031",
 		"sender": "other",
 		"timestamp": "2025-08-01T14:46:00Z",
 		"type": "sticker",
-		"mediaUrl": "https://tu-bucket.s3.amazonaws.com/stickers/my_sticker_7.webp"
+		"mediaUrl": "https://bucket/stickers/my_sticker_7.webp"
 	}
 ]
