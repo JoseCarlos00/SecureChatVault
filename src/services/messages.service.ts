@@ -1,13 +1,7 @@
 import fs from 'node:fs';
+import { type Message } from '../types/message';
 
 const messagesFilePath = 'src/models/messages.json';
-
-interface Message {
-	id: string;
-	text: string;
-	timestamp: string;
-	sender: string;
-}
 
 let messagesData: Message[] = [];
 
@@ -56,7 +50,7 @@ export const getMessagesFromFile = (options: GetMessagesOptions) => {
 
   // 2. Obtener el número total de mensajes después de filtrar
   const total = filteredMessages.length;
-  
+
   // 3. Aplicar la paginación sobre la lista ya filtrada y ordenada
   const paginatedMessages = filteredMessages.slice(offset, offset + limit);
 
