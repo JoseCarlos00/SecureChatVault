@@ -1,10 +1,51 @@
 [
   {
-		"sender": "yo",
-		"text": "Aquí tienes la imagen:",
-		"timestamp": "2025-07-30T18:05:00Z",
+		"_id": "648a3e74c871f3014a9b6c00",
+		"sender": "me",
+		"timestamp": "2025-08-01T14:30:00Z",
+		"type": "text",
+		"content": "Hello, how are you doing today?"
+	},
+	{
+		"_id": "648a3e74c871f3014a9b6c01",
+		"sender": "other",
+		"timestamp": "2025-08-01T14:32:00Z",
+		"type": "text",
+		"content": "I'm great, thanks! You?",
+		"replyTo": "648a3e74c871f3014a9b6c00"
+	},
+	{
+		"_id": "648a3e74c871f3014a9b6c02",
+		"sender": "me",
+		"timestamp": "2025-08-01T14:35:00Z",
 		"type": "image",
-		"mediaUrl": "https://tu-bucket-seguro.s3.amazonaws.com/conversacion/imagen-sensible-123.jpg",
-		"caption": "Esta es una foto muy especial."
+		"mediaUrl": "https://tu-bucket.s3.amazonaws.com/media/photo_123.jpg",
+		"caption": "Check out this beautiful sunset!",
+		"replyTo": "648a3e74c871f3014a9b6c01"
+	},
+	{
+		"_id": "648a3e74c871f3014a9b6c03",
+		"sender": "other",
+		"timestamp": "2025-08-01T14:40:00Z",
+		"type": "audio",
+		"mediaUrl": "https://tu-bucket.s3.amazonaws.com/media/voice_note_1.mp3",
+		"duration": 45
+	},
+	{
+		"_id": "648a3e74c871f3014a9b6c04",
+		"sender": "me",
+		"timestamp": "2025-08-01T14:45:00Z",
+		"type": "video",
+		"mediaUrl": "https://tu-bucket.s3.amazonaws.com/media/video_456.mp4",
+		"caption": "A fun video from my trip.",
+		"duration": 120,
+		"thumbnailUrl": "https://tu-bucket.s3.amazonaws.com/media/video_456_thumb.jpg"
+	},
+	{
+		"_id": "648a3e74c871f3014a9b6c05",
+		"sender": "other",
+		"timestamp": "2025-08-01T14:46:00Z",
+		"type": "sticker",
+		"mediaUrl": "https://tu-bucket.s3.amazonaws.com/stickers/my_sticker_7.webp"
 	}
 ]
