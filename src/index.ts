@@ -4,6 +4,9 @@ import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
+import https from 'node:https';
+import fs from 'node:fs';
+
 import authRoutes from './routes/auth'; // Rutas de autenticación
 import messagesRouter from './routes/messages'; // Nuevas rutas protegidas para mensajes
 import { verifyToken } from './middlewares/verifyToken';
@@ -20,7 +23,7 @@ if (!config.JWT_SECRET) {
 
 
 const app: Express = express();
-const port = config.PORT;
+const PORT = config.PORT;
 
 app.use(
 	cors({
@@ -45,7 +48,19 @@ app.get('/', verifyToken, (req: Request, res: Response) => {
 
 app.use('/api/messages', verifyToken, messagesRouter);
 
-app.listen(port, () => {
-	console.log(`[server]: Server is running at http://localhost:${port}`);
+// app.listen(PORT, () => {
+// 	console.log(`Servidor API corriendo en http://localhost:${PORT}`);
+// 	});
+	
+	// Cargar los certificados
+	const httpsOptions = {
+		key: fs.readFileSync('./localhost+1-key.pem'),
+		cert: fs.readFileSync('./localhost+1.pem'),
+	};
+
+
+	// Levantar el servidor HTTPS
+	https.createServer(httpsOptions, app).listen(PORT, () => {
+		console.log(`Servidor API corriendo en http://localhost:${PORT}`);
 });
 

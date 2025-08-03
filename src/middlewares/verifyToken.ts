@@ -9,13 +9,14 @@ interface AuthPayload extends JwtPayload {
 }
 
 export const verifyToken = (req: Request, res: Response, next: NextFunction) => {
-	const authHeader = req.headers['authorization'];
-  const token = authHeader?.split(' ')[1];
+	const token = req.cookies?.refreshToken;
+
+	console.log(req.cookies);
+	
 
 	if (!token) return res.status(401).json({ error: 'Token missing' });
 
 	try {
-		// Ahora tenemos la garantía de que JWT_SECRET existe gracias a la verificación en index.ts
 		 const payload = jwt.verify(token, JWT_SECRET!) as AuthPayload;
 
 
@@ -24,10 +25,13 @@ export const verifyToken = (req: Request, res: Response, next: NextFunction) => 
 			return res.status(401).json({ error: 'Invalid token payload' });
 		}
 
-		req.user = { username: payload.username, role: payload.role };
+		req.user = {
+			username: payload.username,
+			role: payload.role,
+		};
+
 		next();
 	} catch (error) {
-    // jwt.verify lanza un error para tokens inválidos o expirados, que capturamos aquí.
 		 return res.status(403).json({ error: 'Invalid or expired token' });
 	}
 };
