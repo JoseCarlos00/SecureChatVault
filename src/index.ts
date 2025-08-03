@@ -7,8 +7,8 @@ import cors from 'cors';
 import https from 'node:https';
 import fs from 'node:fs';
 
-import authRoutes from './routes/auth'; // Rutas de autenticación
-import messagesRouter from './routes/messages'; // Nuevas rutas protegidas para mensajes
+import authRoutes from './routes/auth.route'; // Rutas de autenticación
+import messagesRouter from './routes/messages.route'; // Nuevas rutas protegidas para mensajes
 import { verifyToken } from './middlewares/verifyToken';
 
 import { config } from "./config/config";
