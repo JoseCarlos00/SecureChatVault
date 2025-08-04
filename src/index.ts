@@ -9,9 +9,10 @@ import fs from 'node:fs';
 
 import authRoutes from './routes/auth.route'; // Rutas de autenticación
 import messagesRouter from './routes/messages.route'; // Nuevas rutas protegidas para mensajes
+import uploadRouter from './routes/upload.route'; // Rutas para subir y parsear chats
 import { verifyToken } from './middlewares/verifyToken';
 
-import { config } from "./config/config";
+import { config } from './config/config';
 
 dotenv.config();
 
@@ -20,7 +21,6 @@ if (!config.JWT_SECRET) {
 	console.error('FATAL ERROR: JWT_SECRET is not defined in the .env file.');
 	process.exit(1);
 }
-
 
 const app: Express = express();
 const PORT = config.PORT;
@@ -39,28 +39,22 @@ app.use(express.json());
 // Rutas PÚBLICAS, no necesitan token.
 app.use('/api/auth', authRoutes);
 
-
 // Rutas protegida
 app.get('/', verifyToken, (req: Request, res: Response) => {
 	res.send('API de SecureChatVault está activa. Usa /api/auth/login para autenticarse.');
 });
 
-
 app.use('/api/messages', verifyToken, messagesRouter);
-
-// app.listen(PORT, () => {
-// 	console.log(`Servidor API corriendo en http://localhost:${PORT}`);
-// 	});
-	
-	// Cargar los certificados
-	const httpsOptions = {
-		key: fs.readFileSync('./localhost+1-key.pem'),
-		cert: fs.readFileSync('./localhost+1.pem'),
-	};
+app.use('/api/upload', verifyToken, uploadRouter);
 
 
-	// Levantar el servidor HTTPS
-	https.createServer(httpsOptions, app).listen(PORT, () => {
-		console.log(`Servidor API corriendo en http://localhost:${PORT}`);
+// Cargar los certificados
+const httpsOptions = {
+	key: fs.readFileSync('./localhost+1-key.pem'),
+	cert: fs.readFileSync('./localhost+1.pem'),
+};
+
+// Levantar el servidor HTTPS
+https.createServer(httpsOptions, app).listen(PORT, () => {
+	console.log(`Servidor API corriendo en https://localhost:${PORT}`);
 });
-
