@@ -1,437 +1,291 @@
 [
-	  {
-    "_id": "001",
-    "sender": "me",
-    "timestamp": "2025-01-05T10:15:00Z",
-    "type": "text",
-    "content": "Primer mensaje del año"
-  },
   {
-    "_id": "002",
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
     "sender": "other",
-    "timestamp": "2025-01-05T10:17:00Z",
+    "timestamp": "2025-05-24T18:38:00.000Z",
     "type": "text",
-    "content": "¡Feliz año nuevo!"
+    "content": "Hola"
   },
   {
-    "_id": "003",
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
     "sender": "me",
-    "timestamp": "2025-02-10T08:45:00Z",
-    "type": "image",
-    "mediaUrl": "https://bucket/media/foto_febrero.jpg",
-    "caption": "Día nublado en la ciudad"
-  },
-  {
-    "_id": "004",
-    "sender": "other",
-    "timestamp": "2025-02-10T08:46:00Z",
+    "timestamp": "2025-05-24T18:53:00.000Z",
     "type": "sticker",
-    "mediaUrl": "https://bucket/stickers/sticker_1.webp"
+    "mediaUrl": "uploads/STK-20230906-WA0005.webp"
   },
   {
-    "_id": "005",
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
     "sender": "me",
-    "timestamp": "2025-03-03T14:20:00Z",
+    "timestamp": "2025-05-24T18:54:00.000Z",
+    "type": "text",
+    "content": "Hola, quieres otro dulcito 🍬?"
+  },
+  {
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "sender": "other",
+    "timestamp": "2025-05-24T19:47:00.000Z",
+    "type": "text",
+    "content": "Gracias por los dulcitos ✨🩷"
+  },
+  {
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "sender": "me",
+    "timestamp": "2025-05-24T20:38:00.000Z",
+    "type": "text",
+    "content": "Me alegra que te gusten.\nTienes un dulce favorito?"
+  },
+  {
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "sender": "me",
+    "timestamp": "2025-05-24T20:41:00.000Z",
+    "type": "text",
+    "content": "Espero que los dulces te hayan alegrado el día."
+  },
+  {
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "sender": "me",
+    "timestamp": "2025-05-24T20:41:00.000Z",
+    "type": "image",
+    "mediaUrl": "uploads/IMG-20250524-WA0002.jpg",
+    "caption": "Estos son los otros dulces, pero siempre compro los de café"
+  },
+  {
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "sender": "other",
+    "timestamp": "2025-05-24T20:46:00.000Z",
     "type": "audio",
-    "mediaUrl": "https://bucket/audio/audio1.mp3",
-    "duration": 30
+    "mediaUrl": "uploads/PTT-20250524-WA0003.opus"
   },
   {
-    "_id": "006",
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
     "sender": "other",
-    "timestamp": "2025-03-03T14:22:00Z",
+    "timestamp": "2025-05-24T20:47:00.000Z",
     "type": "text",
-    "content": "Te escucho bien."
+    "content": "Ah si me acuerdo, me gustan más los de café"
   },
   {
-    "_id": "007",
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
     "sender": "me",
-    "timestamp": "2025-03-15T18:05:00Z",
+    "timestamp": "2025-05-24T21:45:00.000Z",
     "type": "text",
-    "content": "¿Viste las noticias hoy?"
+    "content": "Me gustan mucho los bombones. En especial los bombones cubiertos de chocolate.\nSaben ricos, pero no me duran nada."
   },
   {
-    "_id": "008",
-    "sender": "other",
-    "timestamp": "2025-04-01T09:30:00Z",
-    "type": "video",
-    "mediaUrl": "https://bucket/video/abril.mp4",
-    "caption": "Resumen del mes",
-    "duration": 90,
-    "thumbnailUrl": "https://bucket/thumbs/abril.jpg"
-  },
-  {
-    "_id": "009",
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
     "sender": "me",
-    "timestamp": "2025-04-02T11:00:00Z",
-    "type": "file",
-    "mediaUrl": "https://bucket/files/report.pdf",
-    "filename": "report.pdf"
-  },
-  {
-    "_id": "010",
-    "sender": "other",
-    "timestamp": "2025-04-03T08:15:00Z",
+    "timestamp": "2025-05-24T21:47:00.000Z",
     "type": "text",
-    "content": "Gracias por el archivo"
+    "content": "¿Has estado saltando con tu cuerda nueva?\nCómo te va con eso?"
   },
   {
-    "_id": "011",
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "sender": "other",
+    "timestamp": "2025-05-24T21:48:00.000Z",
+    "type": "text",
+    "content": "Están ricos, has visto que sacaron una versión de chocolate con menta?"
+  },
+  {
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "sender": "other",
+    "timestamp": "2025-05-24T21:48:00.000Z",
+    "type": "text",
+    "content": "Te gusta el chocolate con menta?"
+  },
+  {
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "sender": "other",
+    "timestamp": "2025-05-24T21:49:00.000Z",
+    "type": "text",
+    "content": "Bien, pero esta semana lo he dejado por todo lo que ha pasado en el trabajo 😕"
+  },
+  {
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "sender": "other",
+    "timestamp": "2025-05-24T21:49:00.000Z",
+    "type": "text",
+    "content": "Tu vas a tener partido o algo así?"
+  },
+  {
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
     "sender": "me",
-    "timestamp": "2025-05-05T15:30:00Z",
+    "timestamp": "2025-05-24T21:54:00.000Z",
     "type": "text",
-    "content": "Comenzamos mayo con energía"
+    "content": "Bueno, espero que todo se calme y puedas sentirte mejor para poder disfrutar de tu cuerda.\nHoy es un buen momento para retomar 😀"
   },
   {
-    "_id": "012",
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "sender": "me",
+    "timestamp": "2025-05-24T21:55:00.000Z",
+    "type": "text",
+    "content": "No los conozco, lo que se me vino a la mente son las *chocoretas*"
+  },
+  {
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "sender": "me",
+    "timestamp": "2025-05-24T21:56:00.000Z",
+    "type": "text",
+    "content": "Tuve partido ayer, perdimos 😞"
+  },
+  {
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
     "sender": "other",
-    "timestamp": "2025-05-05T15:31:00Z",
+    "timestamp": "2025-05-24T21:58:00.000Z",
     "type": "image",
-    "mediaUrl": "https://bucket/media/mayo.jpg",
-    "caption": "Foto del día"
+    "mediaUrl": "uploads/IMG-20250524-WA0004.jpg"
   },
   {
-    "_id": "013",
-    "sender": "me",
-    "timestamp": "2025-05-10T07:45:00Z",
-    "type": "sticker",
-    "mediaUrl": "https://bucket/stickers/mayo_sticker.webp"
-  },
-  {
-    "_id": "014",
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
     "sender": "other",
-    "timestamp": "2025-06-01T12:00:00Z",
-    "type": "audio",
-    "mediaUrl": "https://bucket/audio/junio.mp3",
-    "duration": 55
-  },
-  {
-    "_id": "015",
-    "sender": "me",
-    "timestamp": "2025-06-02T13:30:00Z",
-    "type": "video",
-    "mediaUrl": "https://bucket/video/junio.mp4",
-    "caption": "Evento importante",
-    "duration": 130,
-    "thumbnailUrl": "https://bucket/thumbs/junio.jpg"
-  },
-  {
-    "_id": "016",
-    "sender": "me",
-    "timestamp": "2025-06-15T09:30:00Z",
+    "timestamp": "2025-05-24T21:58:00.000Z",
     "type": "text",
-    "content": "Mitad de año"
+    "content": "Ese"
   },
   {
-    "_id": "017",
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
     "sender": "other",
-    "timestamp": "2025-07-04T16:45:00Z",
+    "timestamp": "2025-05-24T21:59:00.000Z",
     "type": "text",
-    "content": "Ya casi vacaciones"
+    "content": "Y te gustan?"
   },
   {
-    "_id": "018",
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "sender": "other",
+    "timestamp": "2025-05-24T21:59:00.000Z",
+    "type": "text",
+    "content": "Si yo creo que termino de hacer mis cosas y salto un ratito"
+  },
+  {
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "sender": "other",
+    "timestamp": "2025-05-24T21:59:00.000Z",
+    "type": "text",
+    "content": "Tu vas a hacer tarea?"
+  },
+  {
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "sender": "other",
+    "timestamp": "2025-05-24T21:59:00.000Z",
+    "type": "text",
+    "content": "Lo siento, cuanto quedaron?"
+  },
+  {
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
     "sender": "me",
-    "timestamp": "2025-07-10T10:10:00Z",
+    "timestamp": "2025-05-24T22:04:00.000Z",
+    "type": "text",
+    "content": "Empezó a llover aquí 🌧️"
+  },
+  {
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "sender": "me",
+    "timestamp": "2025-05-24T22:06:00.000Z",
+    "type": "text",
+    "content": "No los conozco, pero se ven ricos 🤤"
+  },
+  {
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "sender": "me",
+    "timestamp": "2025-05-24T22:08:00.000Z",
+    "type": "text",
+    "content": "No tengo muchas ganas, pero ya me atrase tres días.\nMe puse a limpiar mi cuarto.\nAun no acabo. Estoy tirando cosas, revisando papeles para tirar y así"
+  },
+  {
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "sender": "me",
+    "timestamp": "2025-05-24T22:09:00.000Z",
     "type": "image",
-    "mediaUrl": "https://bucket/media/julio1.jpg",
-    "caption": "Vista al mar"
+    "mediaUrl": "uploads/IMG-20250524-WA0005.jpg",
+    "caption": "En mi limpieza, recorde que tengo otros lentes, solo los he ocupado 1 vez."
   },
   {
-    "_id": "019",
-    "sender": "other",
-    "timestamp": "2025-07-11T11:11:00Z",
-    "type": "sticker",
-    "mediaUrl": "https://bucket/stickers/verano.webp"
-  },
-  {
-    "_id": "020",
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
     "sender": "me",
-    "timestamp": "2025-08-01T14:30:00Z",
+    "timestamp": "2025-05-24T22:10:00.000Z",
     "type": "text",
-    "content": "Hello, how are you doing today?"
+    "content": "Perdimos 7-2.\nTenemos otro partido el martes 😃"
   },
   {
-    "_id": "021",
-    "sender": "other",
-    "timestamp": "2025-08-01T14:32:00Z",
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "sender": "me",
+    "timestamp": "2025-05-24T22:10:00.000Z",
     "type": "text",
-    "content": "I'm great, thanks! You?",
-    "replyTo": "020"
+    "content": "Espero y si puedas."
   },
   {
-    "_id": "022",
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
     "sender": "me",
-    "timestamp": "2025-08-01T14:35:00Z",
-    "type": "image",
-    "mediaUrl": "https://tu-bucket.s3.amazonaws.com/media/photo_123.jpg",
-    "caption": "Check out this beautiful sunset!",
-    "replyTo": "021"
+    "timestamp": "2025-05-24T22:11:00.000Z",
+    "type": "text",
+    "content": "Apenas voy a comer, tu ya comiste?"
   },
   {
-    "_id": "023",
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
     "sender": "other",
-    "timestamp": "2025-08-01T14:40:00Z",
-    "type": "audio",
-    "mediaUrl": "https://tu-bucket.s3.amazonaws.com/media/voice_note_1.mp3",
-    "duration": 45
+    "timestamp": "2025-05-24T22:13:00.000Z",
+    "type": "text",
+    "content": "Aquí también y feo"
   },
   {
-    "_id": "024",
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "sender": "other",
+    "timestamp": "2025-05-24T22:14:00.000Z",
+    "type": "text",
+    "content": "Son como los normales pero con menta 🤭"
+  },
+  {
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "sender": "other",
+    "timestamp": "2025-05-24T22:14:00.000Z",
+    "type": "text",
+    "content": "Y eso? Porque solo una vez?"
+  },
+  {
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "sender": "other",
+    "timestamp": "2025-05-24T22:15:00.000Z",
+    "type": "text",
+    "content": "Están padres los de la izquierda"
+  },
+  {
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "sender": "other",
+    "timestamp": "2025-05-24T22:17:00.000Z",
+    "type": "text",
+    "content": "Ay no pues si les dieron la vuelta"
+  },
+  {
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "sender": "other",
+    "timestamp": "2025-05-24T22:17:00.000Z",
+    "type": "text",
+    "content": "A que hora?"
+  },
+  {
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "sender": "other",
+    "timestamp": "2025-05-24T22:17:00.000Z",
+    "type": "text",
+    "content": "Aun no, dehecho estoy haciendo de comer"
+  },
+  {
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "sender": "other",
+    "timestamp": "2025-05-24T22:17:00.000Z",
+    "type": "text",
+    "content": "Hago tacos dorados"
+  },
+  {
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "sender": "other",
+    "timestamp": "2025-05-24T22:18:00.000Z",
+    "type": "text",
+    "content": "Tu que vas a comer?"
+  },
+  {
+    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
     "sender": "me",
-    "timestamp": "2025-08-01T14:45:00Z",
-    "type": "video",
-    "mediaUrl": "https://tu-bucket.s3.amazonaws.com/media/video_456.mp4",
-    "caption": "A fun video from my trip.",
-    "duration": 120,
-    "thumbnailUrl": "https://tu-bucket.s3.amazonaws.com/media/video_456_thumb.jpg"
-  },
-  {
-    "_id": "025",
-    "sender": "other",
-    "timestamp": "2025-08-01T14:46:00Z",
-    "type": "sticker",
-    "mediaUrl": "https://tu-bucket.s3.amazonaws.com/stickers/my_sticker_7.webp"
-  },
-	{
-		"_id": "msg_001",
-		"sender": "me",
-		"timestamp": "2025-01-10T08:15:00Z",
-		"type": "text",
-		"content": "¡Feliz año nuevo!"
-	},
-	{
-		"_id": "msg_002",
-		"sender": "other",
-		"timestamp": "2025-01-11T09:30:00Z",
-		"type": "text",
-		"content": "Gracias, igualmente."
-	},
-	{
-		"_id": "msg_003",
-		"sender": "me",
-		"timestamp": "2025-02-05T14:00:00Z",
-		"type": "image",
-		"mediaUrl": "https://bucket/img1.jpg",
-		"caption": "Paisaje nevado"
-	},
-	{
-		"_id": "msg_004",
-		"sender": "other",
-		"timestamp": "2025-02-10T16:30:00Z",
-		"type": "audio",
-		"mediaUrl": "https://bucket/audio1.mp3",
-		"duration": 60
-	},
-	{
-		"_id": "msg_005",
-		"sender": "me",
-		"timestamp": "2025-02-12T10:45:00Z",
-		"type": "text",
-		"content": "¿Escuchaste el audio?"
-	},
-	{
-		"_id": "msg_006",
-		"sender": "other",
-		"timestamp": "2025-03-01T12:00:00Z",
-		"type": "sticker",
-		"mediaUrl": "https://bucket/sticker1.webp"
-	},
-	{
-		"_id": "msg_007",
-		"sender": "me",
-		"timestamp": "2025-03-02T14:20:00Z",
-		"type": "video",
-		"mediaUrl": "https://bucket/video1.mp4",
-		"caption": "Concierto en vivo",
-		"duration": 90,
-		"thumbnailUrl": "https://bucket/video1_thumb.jpg"
-	},
-	{
-		"_id": "msg_008",
-		"sender": "other",
-		"timestamp": "2025-03-05T09:00:00Z",
-		"type": "text",
-		"content": "Me encantó ese video."
-	},
-	{
-		"_id": "msg_009",
-		"sender": "me",
-		"timestamp": "2025-04-12T11:00:00Z",
-		"type": "image",
-		"mediaUrl": "https://bucket/photo_april.jpg",
-		"caption": "Flores de primavera"
-	},
-	{
-		"_id": "msg_010",
-		"sender": "other",
-		"timestamp": "2025-04-15T15:30:00Z",
-		"type": "text",
-		"content": "Hermosa foto."
-	},
-	{
-		"_id": "msg_011",
-		"sender": "me",
-		"timestamp": "2025-04-20T18:00:00Z",
-		"type": "audio",
-		"mediaUrl": "https://bucket/audio_april.mp3",
-		"duration": 30
-	},
-	{
-		"_id": "msg_012",
-		"sender": "me",
-		"timestamp": "2025-05-01T10:10:00Z",
-		"type": "text",
-		"content": "¡Ya es mayo!"
-	},
-	{
-		"_id": "msg_013",
-		"sender": "other",
-		"timestamp": "2025-05-02T14:00:00Z",
-		"type": "text",
-		"content": "Se pasa volando."
-	},
-	{
-		"_id": "msg_014",
-		"sender": "me",
-		"timestamp": "2025-05-05T17:25:00Z",
-		"type": "sticker",
-		"mediaUrl": "https://bucket/sticker_mayo.webp"
-	},
-	{
-		"_id": "msg_015",
-		"sender": "other",
-		"timestamp": "2025-05-08T19:45:00Z",
-		"type": "video",
-		"mediaUrl": "https://bucket/video_mayo.mp4",
-		"caption": "Un paseo por el bosque",
-		"duration": 75,
-		"thumbnailUrl": "https://bucket/video_mayo_thumb.jpg"
-	},
-	{
-		"_id": "msg_016",
-		"sender": "me",
-		"timestamp": "2025-05-10T22:00:00Z",
-		"type": "image",
-		"mediaUrl": "https://bucket/foto_mayo.jpg",
-		"caption": "Día de campo"
-	},
-	{
-		"_id": "msg_017",
-		"sender": "other",
-		"timestamp": "2025-06-01T08:15:00Z",
-		"type": "text",
-		"content": "Junio ya está aquí."
-	},
-	{
-		"_id": "msg_018",
-		"sender": "me",
-		"timestamp": "2025-06-03T11:00:00Z",
-		"type": "text",
-		"content": "¡Mitad de año!"
-	},
-	{
-		"_id": "msg_019",
-		"sender": "me",
-		"timestamp": "2025-06-06T15:10:00Z",
-		"type": "audio",
-		"mediaUrl": "https://bucket/audio_junio.mp3",
-		"duration": 40
-	},
-	{
-		"_id": "msg_020",
-		"sender": "other",
-		"timestamp": "2025-06-10T18:30:00Z",
-		"type": "video",
-		"mediaUrl": "https://bucket/video_junio.mp4",
-		"caption": "Tarde en el parque",
-		"duration": 60,
-		"thumbnailUrl": "https://bucket/video_junio_thumb.jpg"
-	},
-	{
-		"_id": "msg_021",
-		"sender": "me",
-		"timestamp": "2025-07-01T10:00:00Z",
-		"type": "text",
-		"content": "Empieza julio con calor."
-	},
-	{
-		"_id": "msg_022",
-		"sender": "other",
-		"timestamp": "2025-07-02T12:20:00Z",
-		"type": "image",
-		"mediaUrl": "https://bucket/foto_julio1.jpg",
-		"caption": "Día soleado"
-	},
-	{
-		"_id": "msg_023",
-		"sender": "me",
-		"timestamp": "2025-07-03T16:40:00Z",
-		"type": "sticker",
-		"mediaUrl": "https://bucket/sticker_julio.webp"
-	},
-	{
-		"_id": "msg_024",
-		"sender": "other",
-		"timestamp": "2025-07-04T19:00:00Z",
-		"type": "text",
-		"content": "Qué calor hace."
-	},
-	{
-		"_id": "msg_025",
-		"sender": "me",
-		"timestamp": "2025-07-05T22:15:00Z",
-		"type": "audio",
-		"mediaUrl": "https://bucket/audio_julio.mp3",
-		"duration": 50
-	},
-	{
-		"_id": "msg_026",
-		"sender": "me",
-		"timestamp": "2025-08-01T14:30:00Z",
-		"type": "text",
-		"content": "Hello, how are you doing today?"
-	},
-	{
-		"_id": "msg_027",
-		"sender": "other",
-		"timestamp": "2025-08-01T14:32:00Z",
-		"type": "text",
-		"content": "I'm great, thanks! You?",
-		"replyTo": "msg_026"
-	},
-	{
-		"_id": "msg_028",
-		"sender": "me",
-		"timestamp": "2025-08-01T14:35:00Z",
-		"type": "image",
-		"mediaUrl": "https://bucket/photo_123.jpg",
-		"caption": "Check out this beautiful sunset!",
-		"replyTo": "msg_027"
-	},
-	{
-		"_id": "msg_029",
-		"sender": "other",
-		"timestamp": "2025-08-01T14:40:00Z",
-		"type": "audio",
-		"mediaUrl": "https://bucket/voice_note_1.mp3",
-		"duration": 45
-	},
-	{
-		"_id": "msg_030",
-		"sender": "me",
-		"timestamp": "2025-08-01T14:45:00Z",
-		"type": "video",
-		"mediaUrl": "https://bucket/video_456.mp4",
-		"caption": "A fun video from my trip.",
-		"duration": 120,
-		"thumbnailUrl": "https://bucket/video_456_thumb.jpg"
-	},
-	{
-		"_id": "msg_031",
-		"sender": "other",
-		"timestamp": "2025-08-01T14:46:00Z",
-		"type": "sticker",
-		"mediaUrl": "https://bucket/stickers/my_sticker_7.webp"
-	}
+    "timestamp": "2025-05-24T22:42:00.000Z",
+    "type": "text",
+    "content": "Y normalmente en donde saltas, puedes con la lluvia?"
+  }
 ]
