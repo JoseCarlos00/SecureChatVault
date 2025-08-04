@@ -17,14 +17,18 @@ let messagesData: Message[] = [];
 export const loadMessages = () => {
 	try {
 		const data = fs.readFileSync(messagesFilePath, 'utf8');
-		messagesData = JSON.parse(data);
-		console.log('Mensajes cargados:', messagesData.length);
+		const parsedData = JSON.parse(data) as Message[];
+		// Asegurarse de que los mensajes estén ordenados por fecha ascendente
+		messagesData = parsedData.sort(
+			(a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
+		);
+		console.log('Mensajes cargados y ordenados:', messagesData.length);
 	} catch (err) {
 		if ((err as NodeJS.ErrnoException).code === 'ENOENT') {
 			console.log('Archivo messages.json no encontrado. Se iniciará con un array vacío.');
 			messagesData = [];
 		} else {
-			console.error('Error al leer messages.json:', err);
+			console.error('Error al leer o parsear messages.json:', err);
 			messagesData = [];
 		}
 	}
@@ -36,7 +40,8 @@ loadMessages();
 export const getMessagesFromFile = (options: GetMessagesOptions) => {
 	const { limit = 20, offset = 0, startDate, endDate } = options;
 
-	let filteredMessages = messagesData;
+	// Invertimos una copia del array para que los más recientes estén primero.
+	let filteredMessages = [...messagesData].reverse();
 
 	if (startDate || endDate) {
 		const start = startDate ? new Date(startDate) : null;
@@ -55,5 +60,3 @@ export const getMessagesFromFile = (options: GetMessagesOptions) => {
 
 	return { messages: paginatedMessages, total };
 };
-
-

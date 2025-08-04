@@ -1,48 +1,48 @@
 [
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "other",
     "timestamp": "2025-05-24T18:38:00.000Z",
     "type": "text",
     "content": "Hola"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "me",
     "timestamp": "2025-05-24T18:53:00.000Z",
     "type": "sticker",
     "mediaUrl": "uploads/STK-20230906-WA0005.webp"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "me",
     "timestamp": "2025-05-24T18:54:00.000Z",
     "type": "text",
     "content": "Hola, quieres otro dulcito 🍬?"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "other",
     "timestamp": "2025-05-24T19:47:00.000Z",
     "type": "text",
     "content": "Gracias por los dulcitos ✨🩷"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "me",
     "timestamp": "2025-05-24T20:38:00.000Z",
     "type": "text",
     "content": "Me alegra que te gusten.\nTienes un dulce favorito?"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "me",
     "timestamp": "2025-05-24T20:41:00.000Z",
     "type": "text",
     "content": "Espero que los dulces te hayan alegrado el día."
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "me",
     "timestamp": "2025-05-24T20:41:00.000Z",
     "type": "image",
@@ -50,147 +50,147 @@
     "caption": "Estos son los otros dulces, pero siempre compro los de café"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "other",
     "timestamp": "2025-05-24T20:46:00.000Z",
     "type": "audio",
     "mediaUrl": "uploads/PTT-20250524-WA0003.opus"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "other",
     "timestamp": "2025-05-24T20:47:00.000Z",
     "type": "text",
     "content": "Ah si me acuerdo, me gustan más los de café"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "me",
     "timestamp": "2025-05-24T21:45:00.000Z",
     "type": "text",
     "content": "Me gustan mucho los bombones. En especial los bombones cubiertos de chocolate.\nSaben ricos, pero no me duran nada."
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "me",
     "timestamp": "2025-05-24T21:47:00.000Z",
     "type": "text",
     "content": "¿Has estado saltando con tu cuerda nueva?\nCómo te va con eso?"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "other",
     "timestamp": "2025-05-24T21:48:00.000Z",
     "type": "text",
     "content": "Están ricos, has visto que sacaron una versión de chocolate con menta?"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "other",
     "timestamp": "2025-05-24T21:48:00.000Z",
     "type": "text",
     "content": "Te gusta el chocolate con menta?"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "other",
     "timestamp": "2025-05-24T21:49:00.000Z",
     "type": "text",
     "content": "Bien, pero esta semana lo he dejado por todo lo que ha pasado en el trabajo 😕"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "other",
     "timestamp": "2025-05-24T21:49:00.000Z",
     "type": "text",
     "content": "Tu vas a tener partido o algo así?"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "me",
     "timestamp": "2025-05-24T21:54:00.000Z",
     "type": "text",
     "content": "Bueno, espero que todo se calme y puedas sentirte mejor para poder disfrutar de tu cuerda.\nHoy es un buen momento para retomar 😀"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "me",
     "timestamp": "2025-05-24T21:55:00.000Z",
     "type": "text",
     "content": "No los conozco, lo que se me vino a la mente son las *chocoretas*"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "me",
     "timestamp": "2025-05-24T21:56:00.000Z",
     "type": "text",
     "content": "Tuve partido ayer, perdimos 😞"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "other",
     "timestamp": "2025-05-24T21:58:00.000Z",
     "type": "image",
     "mediaUrl": "uploads/IMG-20250524-WA0004.jpg"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "other",
     "timestamp": "2025-05-24T21:58:00.000Z",
     "type": "text",
     "content": "Ese"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "other",
     "timestamp": "2025-05-24T21:59:00.000Z",
     "type": "text",
     "content": "Y te gustan?"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "other",
     "timestamp": "2025-05-24T21:59:00.000Z",
     "type": "text",
     "content": "Si yo creo que termino de hacer mis cosas y salto un ratito"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "other",
     "timestamp": "2025-05-24T21:59:00.000Z",
     "type": "text",
     "content": "Tu vas a hacer tarea?"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "other",
     "timestamp": "2025-05-24T21:59:00.000Z",
     "type": "text",
     "content": "Lo siento, cuanto quedaron?"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "me",
     "timestamp": "2025-05-24T22:04:00.000Z",
     "type": "text",
     "content": "Empezó a llover aquí 🌧️"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "me",
     "timestamp": "2025-05-24T22:06:00.000Z",
     "type": "text",
     "content": "No los conozco, pero se ven ricos 🤤"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "me",
     "timestamp": "2025-05-24T22:08:00.000Z",
     "type": "text",
     "content": "No tengo muchas ganas, pero ya me atrase tres días.\nMe puse a limpiar mi cuarto.\nAun no acabo. Estoy tirando cosas, revisando papeles para tirar y así"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "me",
     "timestamp": "2025-05-24T22:09:00.000Z",
     "type": "image",
@@ -198,91 +198,91 @@
     "caption": "En mi limpieza, recorde que tengo otros lentes, solo los he ocupado 1 vez."
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "me",
     "timestamp": "2025-05-24T22:10:00.000Z",
     "type": "text",
     "content": "Perdimos 7-2.\nTenemos otro partido el martes 😃"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "me",
     "timestamp": "2025-05-24T22:10:00.000Z",
     "type": "text",
     "content": "Espero y si puedas."
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "me",
     "timestamp": "2025-05-24T22:11:00.000Z",
     "type": "text",
     "content": "Apenas voy a comer, tu ya comiste?"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "other",
     "timestamp": "2025-05-24T22:13:00.000Z",
     "type": "text",
     "content": "Aquí también y feo"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "other",
     "timestamp": "2025-05-24T22:14:00.000Z",
     "type": "text",
     "content": "Son como los normales pero con menta 🤭"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "other",
     "timestamp": "2025-05-24T22:14:00.000Z",
     "type": "text",
     "content": "Y eso? Porque solo una vez?"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "other",
     "timestamp": "2025-05-24T22:15:00.000Z",
     "type": "text",
     "content": "Están padres los de la izquierda"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "other",
     "timestamp": "2025-05-24T22:17:00.000Z",
     "type": "text",
     "content": "Ay no pues si les dieron la vuelta"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "other",
     "timestamp": "2025-05-24T22:17:00.000Z",
     "type": "text",
     "content": "A que hora?"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "other",
     "timestamp": "2025-05-24T22:17:00.000Z",
     "type": "text",
     "content": "Aun no, dehecho estoy haciendo de comer"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "other",
     "timestamp": "2025-05-24T22:17:00.000Z",
     "type": "text",
     "content": "Hago tacos dorados"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "other",
     "timestamp": "2025-05-24T22:18:00.000Z",
     "type": "text",
     "content": "Tu que vas a comer?"
   },
   {
-    "_id": "7dacddac-56ec-4386-a565-271a3eaffcc4",
+    "_id": "a5828fc0-e5bb-44ed-9621-ef61fec28b6b",
     "sender": "me",
     "timestamp": "2025-05-24T22:42:00.000Z",
     "type": "text",
