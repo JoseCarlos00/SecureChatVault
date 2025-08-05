@@ -3,6 +3,7 @@ export interface BaseMessage {
 	sender: 'me' | 'other';
 	timestamp: string;
 	replyTo?: string; // Optional reference to another message's _id
+	reactionEmoji?: string; // Optional emoji reaction
 }
 
 export interface TextMessage extends BaseMessage {
