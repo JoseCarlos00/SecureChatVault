@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { getMessagesFromFile } from '../services/messages.service';
+import { getMessagesFromDB } from '../services/messages.service';
 
-export const findMessages = (req: Request, res: Response) => {
+export const findMessages = async (req: Request, res: Response) => {
 	try {
 		// 1. Obtener los query parameters de la URL y convertirlos a números
 		const limit = parseInt(req.query.limit as string) || 20; // Default a 20 mensajes
@@ -10,7 +10,7 @@ export const findMessages = (req: Request, res: Response) => {
 		const endDate = req.query.endDate as string;
 
 		// 2. Llamar al servicio, pasándole los parámetros
-		const { messages, total } = getMessagesFromFile({ limit, offset, startDate, endDate });
+		const { messages, total } = await getMessagesFromDB({ limit, offset, startDate, endDate });
 
 		// 3. Enviar la respuesta con los datos y la metadata de la pagination
 		res.status(200).json({
@@ -20,6 +20,6 @@ export const findMessages = (req: Request, res: Response) => {
 			offset,
 		});
 	} catch (error) {
-		res.status(500).json({ message: 'Error fetching messages', error });
+		res.status(500).json({ message: 'Error fetching messages', error: (error as Error).message });
 	}
 };

@@ -1,6 +1,4 @@
-import fs from 'node:fs';
-import path from 'node:path';
-import { Message } from '../types/message';
+import { MessageModel } from '../models/message.models';
 
 // Interfaz para la pagination y filtrado
 interface GetMessagesOptions {
@@ -10,53 +8,34 @@ interface GetMessagesOptions {
 	endDate?: string;
 }
 
-const messagesFilePath = path.resolve(process.cwd(), 'src', 'models', 'messages.json');
-let messagesData: Message[] = [];
-
-// Esta función se encarga de cargar los mensajes
-export const loadMessages = () => {
-	try {
-		const data = fs.readFileSync(messagesFilePath, 'utf8');
-		const parsedData = JSON.parse(data) as Message[];
-		// Asegurarse de que los mensajes estén ordenados por fecha ascendente
-		messagesData = parsedData.sort(
-			(a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
-		);
-		console.log('Mensajes cargados y ordenados:', messagesData.length);
-	} catch (err) {
-		if ((err as NodeJS.ErrnoException).code === 'ENOENT') {
-			console.log('Archivo messages.json no encontrado. Se iniciará con un array vacío.');
-			messagesData = [];
-		} else {
-			console.error('Error al leer o parsear messages.json:', err);
-			messagesData = [];
-		}
-	}
-};
-
-// Llama a la función de carga al iniciar el servicio
-loadMessages();
-
-export const getMessagesFromFile = (options: GetMessagesOptions) => {
+export const getMessagesFromDB = async (options: GetMessagesOptions) => {
 	const { limit = 20, offset = 0, startDate, endDate } = options;
 
-	// Invertimos una copia del array para que los más recientes estén primero.
-	let filteredMessages = [...messagesData].reverse();
+	// 1. Construir el objeto de consulta para el filtro de fechas
+	const query: Record<string, any> = {};
 
 	if (startDate || endDate) {
-		const start = startDate ? new Date(startDate) : null;
-		const end = endDate ? new Date(endDate) : null;
-
-		filteredMessages = filteredMessages.filter((message) => {
-			const messageDate = new Date(message.timestamp);
-			const isAfterStart = start ? messageDate >= start : true;
-			const isBeforeEnd = end ? messageDate <= end : true;
-			return isAfterStart && isBeforeEnd;
-		});
+		query.timestamp = {};
+		if (startDate) {
+			query.timestamp.$gte = new Date(startDate);
+		}
+		if (endDate) {
+			// Agregamos un día para incluir todo el día de endDate
+			const end = new Date(endDate);
+			end.setDate(end.getDate() + 1);
+			query.timestamp.$lt = end;
+		}
 	}
 
-	const total = filteredMessages.length;
-	const paginatedMessages = filteredMessages.slice(offset, offset + limit);
+	// 2. Obtener el total de documentos que coinciden con el filtro
+	const total = await MessageModel.countDocuments(query);
 
-	return { messages: paginatedMessages, total };
+	// 3. Obtener los mensajes paginados y ordenados
+	const messages = await MessageModel.find(query)
+		.sort({ timestamp: -1 }) // Ordena por fecha descendente (los más nuevos primero)
+		.skip(offset)
+		.limit(limit)
+		.exec();
+
+	return { messages, total };
 };
