@@ -1,7 +1,7 @@
 export interface BaseMessage {
 	_id: string;
 	sender: 'me' | 'other';
-	timestamp: string;
+	timestamp: Date;
 	replyTo?: string; // Optional reference to another message's _id
 	reactionEmoji?: string; // Optional emoji reaction
 }

@@ -1,17 +1,16 @@
-// src/index.ts
 import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
-
 import https from 'node:https';
 import fs from 'node:fs';
 
-import authRoutes from './routes/auth.route'; // Rutas de autenticación
-import messagesRouter from './routes/messages.route'; // Nuevas rutas protegidas para mensajes
+import authRoutes from './routes/auth.route'; 
+import messagesRouter from './routes/messages.route'; 
 import uploadRouter from './routes/upload.route'; // Rutas para subir y parsear chats
-import { verifyToken } from './middlewares/verifyToken';
 
+import { connectToDatabase } from "./lib/mongodb";
+import { verifyToken } from './middlewares/verifyToken';
 import { config } from './config/config';
 
 dotenv.config();
@@ -22,9 +21,21 @@ if (!config.JWT_SECRET) {
 	process.exit(1);
 }
 
+if (!config.JWT_REFRESH_SECRET) {
+	console.error('FATAL ERROR: JWT_REFRESH_SECRET is not defined in the .env file.');
+	process.exit(1);
+}
+
+if (!config.MONGODB_URI) {
+	console.error('FATAL ERROR: MONGODB_URI is not defined in the .env file.');
+	process.exit(1);
+}
+
+// Crear la instancia de Express
 const app: Express = express();
 const PORT = config.PORT;
 
+// Middlewares Usados en todas las rutas
 app.use(
 	cors({
 		origin: config.FRONTEND_URL,
@@ -35,6 +46,7 @@ app.use(
 
 app.use(cookieParser());
 app.use(express.json());
+
 
 // Rutas PÚBLICAS, no necesitan token.
 app.use('/api/auth', authRoutes);
@@ -54,7 +66,13 @@ const httpsOptions = {
 	cert: fs.readFileSync('./localhost+1.pem'),
 };
 
-// Levantar el servidor HTTPS
-https.createServer(httpsOptions, app).listen(PORT, () => {
-	console.log(`Servidor API corriendo en https://localhost:${PORT}`);
-});
+const startServer = async () => {
+	await connectToDatabase();
+
+	// 2. Levantar el servidor HTTPS solo si la conexión fue exitosa
+	https.createServer(httpsOptions, app).listen(PORT, () => {
+		console.log(`Servidor API corriendo en https://localhost:${PORT}`);
+	});
+};
+
+startServer();

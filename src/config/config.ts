@@ -17,4 +17,5 @@ export const config = {
 	REFRESH_TOKEN_EXPIRE: getEnvVar('REFRESH_TOKEN_EXPIRE'),
 	PORT: getEnvVar('PORT'),
 	FRONTEND_URL: getEnvVar('FRONTEND_URL'),
+	MONGODB_URI: getEnvVar('MONGODB_URI'),
 };

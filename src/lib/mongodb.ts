@@ -1,12 +1,11 @@
 import { MongoClient, ServerApiVersion, Db } from 'mongodb';
+import { config } from '../config/config';
 
-const uri = process.env.MONGODB_URI;
-
-if (!uri) {
+if (!config.MONGODB_URI) {
 	throw new Error('Please define the MONGODB_URI environment variable inside .env');
 }
 
-const client = new MongoClient(uri, {
+const client = new MongoClient(config.MONGODB_URI, {
 	serverApi: {
 		version: ServerApiVersion.v1,
 		strict: true,
@@ -36,3 +35,5 @@ export const getDb = (): Db => {
 	}
 	return dbInstance;
 };
+
+
