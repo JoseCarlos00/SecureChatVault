@@ -9,7 +9,7 @@ import authRoutes from './routes/auth.route';
 import messagesRouter from './routes/messages.route'; 
 import uploadRouter from './routes/upload.route'; // Rutas para subir y parsear chats
 
-import { connectToDatabase } from "./lib/mongodb";
+import { connectToDatabase, disconnectFromDatabase } from './lib/mongodb';
 import { verifyToken } from './middlewares/verifyToken';
 import { config } from './config/config';
 
@@ -69,10 +69,22 @@ const httpsOptions = {
 const startServer = async () => {
 	await connectToDatabase();
 
-	// 2. Levantar el servidor HTTPS solo si la conexión fue exitosa
-	https.createServer(httpsOptions, app).listen(PORT, () => {
+	const server = https.createServer(httpsOptions, app).listen(PORT, () => {
 		console.log(`Servidor API corriendo en https://localhost:${PORT}`);
 	});
+
+	// Graceful shutdown
+	const gracefulShutdown = async (signal: string) => {
+		console.log(`\nReceived ${signal}. Shutting down gracefully...`);
+		server.close(async () => {
+			console.log('HTTP server closed.');
+			await disconnectFromDatabase();
+			process.exit(0);
+		});
+	};
+
+	process.on('SIGINT', () => gracefulShutdown('SIGINT'));
+	process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
 };
 
 startServer();
