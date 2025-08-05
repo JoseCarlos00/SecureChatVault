@@ -1,10 +1,8 @@
+import { randomUUID } from 'node:crypto';
 import { Message, TextMessage, MediaMessage } from '../types/message';
 
 // Expresión regular mejorada para manejar el espacio después de la hora
 const messageRegex = /^(\d{1,2}\/\d{1,2}\/\d{2,4}),\s(\d{1,2}:\d{2})\s?(am|pm)\s?-\s(.*?):\s(.*)/;
-
-// Esta expresión regular detecta líneas que no comienzan con un nuevo mensaje.
-const multilineRegex = /^\s*(?!(\d{1,2}\/\d{1,2}\/\d{2,4}, \d{1,2}:\d{2}\s?(?:am|pm)?\s-\s.*?:\s))/;
 
 export const parseWhatsAppChat = (chatContent: string, myUserName: string): Message[] => {
 	console.log('Parsing WhatsApp chat content...');
@@ -14,7 +12,6 @@ export const parseWhatsAppChat = (chatContent: string, myUserName: string): Mess
 		const lines = chatContent.split('\n');
 		const messages: Message[] = [];
 		let currentMessage: Message | null = null;
-		const uuid = crypto.randomUUID();
 
 		for (const line of lines) {
 			const match = line.match(messageRegex);
@@ -36,12 +33,11 @@ export const parseWhatsAppChat = (chatContent: string, myUserName: string): Mess
 					continue; // Skip this line if the date/time is invalid
 				}
 
-				const timestamp = new Date(combinedDateTimeStr).toISOString();
-
+				const timestamp = new Date(combinedDateTimeStr);
 				const senderName = sender.trim();
 
 				// Crea el objeto Message
-				currentMessage = createMessageObject(uuid, senderName, timestamp, content, myUserName);
+				currentMessage = createMessageObject(senderName, timestamp, content, myUserName);
 
 			} else if (currentMessage && line.trim() !== '') {
 				// Lógica para manejar líneas que continúan el mensaje anterior
@@ -85,15 +81,14 @@ const getMessageType = (content: string) => {
 
 // Función que crea el objeto mensaje con el tipo correcto
 const createMessageObject = (
-	id: string,
 	sender: string,
-	timestamp: string,
+	timestamp: Date,
 	content: string,
 	myUserName: string
 ): Message => {
 	const commonProps = {
-		_id: id,
-		sender: sender.toLowerCase() === myUserName.toLowerCase() ? 'me' : 'other',
+		_id: randomUUID(),
+		sender: sender.toLowerCase() === myUserName.toLowerCase() ? ('me' as const) : ('other' as const),
 		timestamp: timestamp,
 	};
 
@@ -106,7 +101,7 @@ const createMessageObject = (
 			...commonProps,
 			type: 'text',
 			content: cleanContent,
-		} as TextMessage;
+		};
 	} else {
 		const filename = content.split(' ').slice(0, -2).join(' ');
 		return {
@@ -115,6 +110,6 @@ const createMessageObject = (
 			mediaUrl: `uploads/${filename}`, // Usamos un placeholder temporal
 			caption: content.replace(filename, '').replace('(file attached)', '').trim() || undefined,
 			// Aquí se podría añadir lógica para duration y thumbnailUrl si se puede extraer
-		} as MediaMessage;
+		};
 	}
 };
