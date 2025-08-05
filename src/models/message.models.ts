@@ -1,4 +1,7 @@
-import { model } from 'mongoose';
-import { messageSchema } from '../schemas/message.schemas';
+import { model, Document } from 'mongoose';
+import { MessageSchema } from '../schemas/message.schema';
+import { type Message } from '../types/message';
 
-export const Message = model('Message', messageSchema);
+export interface MessageDocument extends Omit<Message, '_id'>, Document {}
+
+export const MessageModel = model<MessageDocument>('Message', MessageSchema);

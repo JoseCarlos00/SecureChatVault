@@ -1,10 +1,13 @@
 import { Schema } from 'mongoose';
-import { type Message } from '../types/message';
 
-export const messageSchema = new Schema<Message>(
+export const MessageSchema = new Schema(
 	{
 		sender: {
 			type: String,
+			enum: {
+				values: ['me', 'other'],
+				message: '{VALUE} is not supported',
+			},
 			required: true,
 		},
 		timestamp: {
@@ -21,12 +24,16 @@ export const messageSchema = new Schema<Message>(
 		},
 		type: {
 			type: String,
+			enum: {
+				values: ['text', 'image', 'video', 'audio', 'file'],
+				message: '{VALUE} is not supported',
+			},
 			required: true,
 		},
 		content: {
 			type: String,
 			required: false,
-      default: ''
+			default: '',
 		},
 		mediaUrl: {
 			type: String,

@@ -1,5 +1,5 @@
 export interface BaseMessage {
-	_id: string;
+	_id: ObjectId | UUID;
 	sender: 'me' | 'other';
 	timestamp: Date;
 	replyTo?: string; // Optional reference to another message's _id
