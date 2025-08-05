@@ -6,13 +6,13 @@ export const MessageSchema = new Schema(
 			type: String,
 			enum: {
 				values: ['me', 'other'],
-				message: '{VALUE} is not supported',
+				message: '{VALUE} no es un valor válido',
 			},
-			required: true,
+			required: [true, 'El remitente es obligatorio'],
 		},
 		timestamp: {
 			type: Date,
-			required: true,
+			required: [true, 'La marca de tiempo es obligatoria'],
 		},
 		replyTo: {
 			type: String,
@@ -26,9 +26,9 @@ export const MessageSchema = new Schema(
 			type: String,
 			enum: {
 				values: ['text', 'image', 'video', 'audio', 'file'],
-				message: '{VALUE} is not supported',
+				message: '{VALUE} no es un tipo de mensaje válido',
 			},
-			required: true,
+			required: [true, 'El tipo de mensaje es obligatorio'],
 		},
 		content: {
 			type: String,
