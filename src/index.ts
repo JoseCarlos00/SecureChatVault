@@ -77,6 +77,7 @@ const startServer = async () => {
 		server.close(async () => {
 			console.log('HTTP server closed.');
 			await disconnectFromDatabase();
+			console.log('MongoDB connection closed.');
 			process.exit(0);
 		});
 	};
