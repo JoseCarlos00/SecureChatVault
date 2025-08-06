@@ -1,12 +1,9 @@
 import {Request, Response, NextFunction} from 'express';
-import jwt, { JwtPayload } from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
+import { type AuthPayload } from '../types/authPayload'
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
-interface AuthPayload extends JwtPayload {
-  username: string;
-  role: string;
-}
 
 export const verifyToken = (req: Request, res: Response, next: NextFunction) => {
 	const authHeader = req.header('Authorization');
@@ -23,6 +20,8 @@ export const verifyToken = (req: Request, res: Response, next: NextFunction) => 
 		}
 
 		req.user = {
+			id: payload.id,
+			name: payload.name,
 			username: payload.username,
 			role: payload.role,
 		};

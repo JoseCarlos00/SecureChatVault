@@ -1,28 +1,24 @@
 // src/utils/token.ts
 import jwt from 'jsonwebtoken';
 import { config } from '../config/config';
+import { type AuthPayload } from '../types/authPayload';
 
-interface Payload {
-	username: string;
-	role: string;
-}
-
-export const generateAccessToken = (payload: Payload): string => {
+export const generateAccessToken = (payload: AuthPayload): string => {
 	return jwt.sign(payload, config.JWT_SECRET, {
 		expiresIn: config.ACCESS_TOKEN_EXPIRE,
 	});
 };
 
-export const generateRefreshToken = (payload: Payload): string => {
+export const generateRefreshToken = (payload: AuthPayload): string => {
 	return jwt.sign(payload, config.JWT_REFRESH_SECRET, {
 		expiresIn: config.REFRESH_TOKEN_EXPIRE,
 	});
 };
 
-export const verifyAccessToken = (token: string): Payload => {
-	return jwt.verify(token, config.JWT_SECRET) as Payload;
+export const verifyAccessToken = (token: string): AuthPayload => {
+	return jwt.verify(token, config.JWT_SECRET) as AuthPayload;
 };
 
-export const verifyRefreshToken = (token: string): Payload => {
-	return jwt.verify(token, config.JWT_REFRESH_SECRET) as Payload;
+export const verifyRefreshToken = (token: string): AuthPayload => {
+	return jwt.verify(token, config.JWT_REFRESH_SECRET) as AuthPayload;
 };
