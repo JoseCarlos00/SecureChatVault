@@ -87,7 +87,6 @@ const createMessageObject = (
 	myUserName: string
 ): Message => {
 	const commonProps = {
-		_id: randomUUID(),
 		sender: sender.toLowerCase() === myUserName.toLowerCase() ? ('me' as const) : ('other' as const),
 		timestamp: timestamp,
 	};

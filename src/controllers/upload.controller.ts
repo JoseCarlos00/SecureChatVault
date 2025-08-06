@@ -2,6 +2,13 @@ import { Request, Response } from 'express';
 import { parseWhatsAppChat } from '../services/parser.service';
 import { MessageModel } from '../models/message.models';
 
+import fs from 'fs/promises';
+import path from 'path';
+
+const textFilePath = path.resolve(process.cwd(), 'src', 'models', 'test.txt');
+
+
+
 export const uploadAndParseChat = async (req: Request, res: Response) => {
 	try {
 		if (!req.file) {
@@ -42,20 +49,24 @@ const uploadAndParseChat2 = async (chatContent: string) => {
 
 		const parsedMessages = parseWhatsAppChat(chatContent, myUserName);
 		console.log({ parsedMessages });
-		
 
 		if (parsedMessages.length === 0) {
 			console.log({ message: 'Could not parse any messages from the file. Check the format.' });
-			return
+			return;
 		}
 
+		// 1. Borra todos los mensajes anteriores para evitar duplicados.
+		await MessageModel.deleteMany({});
+
+		// 2. Inserta los nuevos mensajes parseados en la base de datos.
+		await MessageModel.insertMany(parsedMessages);
+
 		// Sobrescribe el archivo messages.json existente.
-		await fs.writeFile(messagesFilePath, JSON.stringify(parsedMessages, null, 2), 'utf-8');
+		// await fs.writeFile(messagesFilePath, JSON.stringify(parsedMessages, null, 2), 'utf-8');
 
 		// Recarga los mensajes en memoria en el servicio de mensajes.
-		loadMessages();
-
-		
+		// loadMessages();
+		console.log(`Successfully parsed and saved ${parsedMessages.length} messages.`);
 	} catch (error) {
 		console.error('Error processing chat file:', error);
 	}
