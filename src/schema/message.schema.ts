@@ -25,7 +25,7 @@ export const MessageSchema = new Schema(
 		type: {
 			type: String,
 			enum: {
-				values: ['text', 'image', 'video', 'audio', 'file'],
+				values: ['text', 'image', 'video', 'audio', 'file', 'sticker'],
 				message: '{VALUE} no es un tipo de mensaje válido',
 			},
 			required: [true, 'El tipo de mensaje es obligatorio'],
