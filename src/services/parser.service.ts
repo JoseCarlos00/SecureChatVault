@@ -1,10 +1,22 @@
-import { randomUUID } from 'node:crypto';
 import { Message, TextMessage, MediaMessage } from '../types/message';
 
 // Expresión regular mejorada para manejar el espacio después de la hora
 const messageRegex = /^(\d{1,2}\/\d{1,2}\/\d{2,4}),\s(\d{1,2}:\d{2})\s?(am|pm)\s?-\s(.*?):\s(.*)/;
 
-export const parseWhatsAppChat = (chatContent: string, myUserName: string): Message[] => {
+interface MediaURl {
+	filename: string;
+	url: string;
+}
+
+interface ParseWhatsAppChatOptions {
+	myUserName: string;
+	chatContent: string;
+	mediaUrls: MediaURl[];
+}
+
+
+
+export const parseWhatsAppChat = ({ chatContent, myUserName, mediaUrls }: ParseWhatsAppChatOptions): Message[] => {
 	console.log('Parsing WhatsApp chat content...');
 	console.log(`Chat content length: ${chatContent.length} characters`);
 
@@ -37,8 +49,7 @@ export const parseWhatsAppChat = (chatContent: string, myUserName: string): Mess
 				const senderName = sender.trim();
 
 				// Crea el objeto Message
-				currentMessage = createMessageObject(senderName, timestamp, content, myUserName);
-
+				currentMessage = createMessageObject(senderName, timestamp, content, myUserName, mediaUrls);
 			} else if (currentMessage && line.trim() !== '') {
 				// Lógica para manejar líneas que continúan el mensaje anterior
 				// Agrega la línea al mensaje actual, ya sea como content o como caption
@@ -84,7 +95,8 @@ const createMessageObject = (
 	sender: string,
 	timestamp: Date,
 	content: string,
-	myUserName: string
+	myUserName: string,
+	mediaUrls: MediaURl[]
 ): Message => {
 	const commonProps = {
 		sender: sender.toLowerCase() === myUserName.toLowerCase() ? ('me' as const) : ('other' as const),
@@ -96,6 +108,7 @@ const createMessageObject = (
 	if (messageType === 'text') {
 		// Elimina el sufijo "(file attached)" si existe
 		const cleanContent = content.endsWith('(file attached)') ? '' : content;
+
 		return {
 			...commonProps,
 			type: 'text',
@@ -103,12 +116,21 @@ const createMessageObject = (
 		};
 	} else {
 		const filename = content.split(' ').slice(0, -2).join(' ');
+
+		// Busca en el array `mediaUrls` para encontrar la URL que coincide
+		const mediaUrlObject = mediaUrls.find((m) => m.filename.includes(filename));
+		const mediaUrl = mediaUrlObject ? mediaUrlObject.url : '';
+
+		// Si no encuentra una URL, puedes dejarla vacía o con un valor predeterminado
+		// para indicar que el archivo no fue subido.
+
 		return {
 			...commonProps,
 			type: messageType as 'image' | 'audio' | 'video' | 'sticker',
-			mediaUrl: `uploads/${filename}`, // Usamos un placeholder temporal
+			// mediaUrl: `https://localhost:3000/uploads/${filename}`, // Usamos un placeholder temporal
+			mediaUrl: mediaUrl,
 			caption: content.replace(filename, '').replace('(file attached)', '').trim() || undefined,
 			// Aquí se podría añadir lógica para duration y thumbnailUrl si se puede extraer
-		};
+		} as MediaMessage;
 	}
 };
