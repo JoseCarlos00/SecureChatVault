@@ -11,6 +11,7 @@ import uploadRouter from './routes/upload.route'; // Rutas para subir y parsear 
 
 import { connectToDatabase, disconnectFromDatabase } from './lib/mongodb';
 import { verifyToken } from './middlewares/verifyToken';
+import { authLimiter, apiLimiter } from "./middlewares/rateLimiter";
 import { config } from './config/config';
 
 dotenv.config();
@@ -48,14 +49,11 @@ app.use(cookieParser());
 app.use(express.json());
 
 
-// Rutas PÚBLICAS, no necesitan token.
-app.use('/api/auth', authRoutes);
+/** Rutas PÚBLICAS, no necesitan token. */
+app.use('/api/auth', authLimiter, authRoutes);
 
-// Rutas protegida
-app.get('/', verifyToken, (req: Request, res: Response) => {
-	res.send('API de SecureChatVault está activa. Usa /api/auth/login para autenticarse.');
-});
-
+/** Rutas protegida. */
+app.use('/api', apiLimiter);
 app.use('/api/messages', verifyToken, messagesRouter);
 app.use('/api/upload', verifyToken, uploadRouter);
 
