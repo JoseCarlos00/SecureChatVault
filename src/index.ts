@@ -48,6 +48,16 @@ app.use(
 app.use(cookieParser());
 app.use(express.json());
 
+import path from 'path';
+// Asegurarse de que el directorio 'uploads' exista
+const uploadsDir = path.join(process.cwd(), 'src', 'uploads');
+fs.promises.mkdir(uploadsDir, { recursive: true }).catch((err) => {
+	console.error('Error creating uploads directory:', err);
+	process.exit(1);
+});
+// Servir archivos estáticos desde el directorio 'uploads'
+app.use('/uploads', express.static(uploadsDir));
+
 
 /** Rutas PÚBLICAS, no necesitan token. */
 app.use('/api/auth', authLimiter, authRoutes);
