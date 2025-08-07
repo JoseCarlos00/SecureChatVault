@@ -39,8 +39,8 @@ export const login = async (req: Request, res: Response) => {
 
 		res.cookie('refreshToken', refreshToken, {
 			httpOnly: true,
-			sameSite: 'strict', // 'strict' es más seguro si el frontend y backend están en el mismo dominio.
-			secure: process.env.NODE_ENV === 'production', // Usar `secure: true` en producción
+			sameSite: 'none',
+			secure: process.env.NODE_ENV == 'production', // Usar `secure: true` solo en producción (HTTPS)
 			maxAge: 7 * 24 * 60 * 60 * 1000, // 7 días
 		});
 
@@ -54,6 +54,7 @@ export const login = async (req: Request, res: Response) => {
 
 export const refreshToken = (req: Request, res: Response) => {
 	const token = req?.cookies?.refreshToken;
+
 	if (!token) return res.status(401).json({ error: 'Refresh token missing' });
 
 	try {
@@ -76,7 +77,7 @@ export const refreshToken = (req: Request, res: Response) => {
 export const logout = (_req: Request, res: Response) => {
 	res.clearCookie('refreshToken', {
 		httpOnly: true,
-		sameSite: 'strict', // Debe coincidir con las opciones de `setCookie`
+		sameSite: 'none',
 		secure: process.env.NODE_ENV === 'production',
 	});
 	res.status(200).json({ message: 'Sesión cerrada exitosamente' });
