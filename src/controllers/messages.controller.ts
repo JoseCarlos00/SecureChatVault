@@ -9,6 +9,8 @@ export const findMessages = async (req: Request, res: Response) => {
 		const startDate = req.query.startDate as string;
 		const endDate = req.query.endDate as string;
 
+		// console.log(req.query);
+
 		// 2. Llamar al servicio, pasándole los parámetros
 		const { messages, total } = await getMessagesFromDB({ limit, offset, startDate, endDate });
 

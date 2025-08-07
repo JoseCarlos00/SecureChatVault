@@ -119,15 +119,21 @@ const createMessageObject = (
 
 		// Busca en el array `mediaUrls` para encontrar la URL que coincide
 		const mediaUrlObject = mediaUrls.find((m) => m.filename.includes(filename));
-		const mediaUrl = mediaUrlObject ? mediaUrlObject.url : '';
+		
+		// Define la URL de tu imagen de reemplazo.
+    // Asegúrate de que esta imagen esté accesible desde tu servidor.
+    const placeholderUrl = 'https://localhost:3000/uploads/imagen-rota.webp';
+		
+    // Asigna la URL de la imagen de reemplazo si no se encuentra la URL real.
+    const mediaUrl = mediaUrlObject ? mediaUrlObject.url : placeholderUrl;
 
-		// Si no encuentra una URL, puedes dejarla vacía o con un valor predeterminado
-		// para indicar que el archivo no fue subido.
+		// console.log({ mediaUrl, placeholderUrl, filename });
+		
+		// const mediaUrl = mediaUrlObject ? mediaUrlObject.url : '';
 
 		return {
 			...commonProps,
 			type: messageType as 'image' | 'audio' | 'video' | 'sticker',
-			// mediaUrl: `https://localhost:3000/uploads/${filename}`, // Usamos un placeholder temporal
 			mediaUrl: mediaUrl,
 			caption: content.replace(filename, '').replace('(file attached)', '').trim() || undefined,
 			// Aquí se podría añadir lógica para duration y thumbnailUrl si se puede extraer

@@ -17,7 +17,7 @@ router.post(
 	'/',
 	upload.fields([
 		{ name: 'chatfile', maxCount: 1 },
-		{ name: 'mediafiles', maxCount: 50 },
+		{ name: 'mediafiles', maxCount: 500 }, // Cambiar cantidad para production
 	]),
 	processUploads
 );
