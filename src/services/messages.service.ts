@@ -32,7 +32,7 @@ export const getMessagesFromDB = async (options: GetMessagesOptions) => {
 
 	// 3. Obtener los mensajes paginados y ordenados
 	const messages = await MessageModel.find(query)
-		.sort({ timestamp: -1 }) // Ordena por fecha descendente (los más nuevos primero)
+		.sort({ _id: -1 })
 		.skip(offset)
 		.limit(limit)
 		.exec();
