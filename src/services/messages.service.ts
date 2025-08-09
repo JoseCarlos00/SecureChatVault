@@ -37,5 +37,8 @@ export const getMessagesFromDB = async (options: GetMessagesOptions) => {
 		.limit(limit)
 		.exec();
 
-	return { messages, total };
+	// Invertimos el array aquí. La consulta obtiene el bloque correcto (p. ej., los 30 más recientes),
+	// y .reverse() los ordena de más antiguo a más nuevo dentro de ese bloque.
+	// Esto simplifica enormemente la lógica del frontend.
+	return { messages: messages.reverse(), total };
 };
