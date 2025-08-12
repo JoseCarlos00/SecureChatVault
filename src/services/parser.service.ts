@@ -54,7 +54,7 @@ export const parseWhatsAppChat = ({ chatContent, myUserName, mediaUrls }: ParseW
 				// Lógica para manejar líneas que continúan el mensaje anterior
 				// Agrega la línea al mensaje actual, ya sea como content o como caption
 				if (currentMessage.type === 'text') {
-					(currentMessage as TextMessage).content += `\n${line.trim()}`;
+					(currentMessage as TextMessage).content += `\n${line.trim().replace('<This message was edited>', '')}`;
 				} else if (currentMessage.caption) {
 					(currentMessage as MediaMessage).caption += `\n${line.trim()}`;
 				} else {
@@ -67,9 +67,6 @@ export const parseWhatsAppChat = ({ chatContent, myUserName, mediaUrls }: ParseW
 		if (currentMessage) {
 			messages.push(currentMessage);
 		}
-
-		// Aquí puedes implementar la lógica para manejar las respuestas (replyTo) si es necesario.
-		// Por ahora, el parser no lo detecta en el formato .txt estándar.
 
 		return messages;
 	} catch (error) {
@@ -106,8 +103,14 @@ const createMessageObject = (
 	const messageType = getMessageType(content);
 
 	if (messageType === 'text') {
-		// Elimina el sufijo "(file attached)" si existe
-		const cleanContent = content.endsWith('(file attached)') ? '' : content;
+		let cleanContent = content
+			.replace('<This message was edited>', '')
+			.trim();
+
+		// Si es un archivo adjunto, vacía el contenido
+		if (cleanContent.endsWith('(file attached)')) {
+			cleanContent = '';
+		}
 
 		return {
 			...commonProps,
