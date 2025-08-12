@@ -71,3 +71,43 @@ export const processUploads = async (req: Request, res: Response) => {
 		res.status(500).json({ message: 'Error interno del servidor.' });
 	}
 };
+
+export const updateReaction = async (req: Request, res: Response) => {
+	try {
+		const { id } = req.params;
+		const { reactionEmoji } = req.body;
+
+		const updatedMessage = await MessageModel.findByIdAndUpdate(
+			id,
+			{ reactionEmoji },
+			{ new: true } // Esto devuelve el documento actualizado
+		);
+
+		if (!updatedMessage) {
+			return res.status(404).json({ message: 'Mensaje no encontrado' });
+		}
+
+		res.status(200).json(updatedMessage);
+	} catch (error) {
+		console.error('Error al actualizar la reacción:', error);
+		res.status(500).json({ message: 'Error interno del servidor' });
+	}
+};
+
+export const updateReplyTo = async (req: Request, res: Response) => {
+	try {
+		const { id } = req.params;
+		const { replyTo } = req.body; // `replyTo` debería ser el _id del mensaje al que se responde
+
+		const updatedMessage = await MessageModel.findByIdAndUpdate(id, { replyTo }, { new: true });
+
+		if (!updatedMessage) {
+			return res.status(404).json({ message: 'Mensaje no encontrado' });
+		}
+
+		res.status(200).json(updatedMessage);
+	} catch (error) {
+		console.error('Error al actualizar la referencia de respuesta:', error);
+		res.status(500).json({ message: 'Error interno del servidor' });
+	}
+};
