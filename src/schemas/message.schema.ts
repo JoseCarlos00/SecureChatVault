@@ -15,7 +15,7 @@ export const BaseMessageSchema = new Schema(
 			required: true,
 		},
 		timestamp: { type: Date, required: [true, 'El timestamp es obligatorio'] },
-		replyTo: { type: String, required: false },
+		replyTo: { type: Schema.Types.ObjectId, ref: 'Message', required: false },
 		reactionEmoji: { type: String, required: false },
 	},
 	{ ...schemaOptions, discriminatorKey: 'type' } // Clave para diferenciar tipos de mensajes
