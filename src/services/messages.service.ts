@@ -41,7 +41,7 @@ export const getMessagesFromDB = async (options: GetMessagesOptions) => {
 	const messages = await MessageModel.find(query)
 		.sort({ _id: -1 }) // más recientes primero
 		.limit(limit)
-		.populate('replyTo', 'sender content caption')
+		.populate('replyTo')
 		.exec();
 
 	return { messages: messages.reverse(), total };
