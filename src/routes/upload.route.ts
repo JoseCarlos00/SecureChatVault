@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import multer from 'multer';
 import { processUploads } from '../controllers/upload.controller';
+import { checkAdminRole } from '../middlewares/auth.middleware';
 
 const router = Router();
 
@@ -15,6 +16,7 @@ const upload = multer({ storage });
 // 'mediafiles': el array de archivos multimedia (hasta 50 en este ejemplo)
 router.post(
 	'/',
+	checkAdminRole,
 	upload.fields([
 		{ name: 'chatfile', maxCount: 1 },
 		{ name: 'mediafiles', maxCount: 500 }, // Cambiar cantidad para production
