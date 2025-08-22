@@ -19,7 +19,7 @@ router.post(
 	checkAdminRole,
 	upload.fields([
 		{ name: 'chatfile', maxCount: 1 },
-		{ name: 'mediafiles', maxCount: 500 }, // Cambiar cantidad para production
+		{ name: 'mediafiles', maxCount: 700 }, // Cambiar cantidad para production
 	]),
 	processUploads
 );
