@@ -15,7 +15,7 @@ export const verifyToken = (req: Request, res: Response, next: NextFunction) => 
 			return res.status(401).json({ error: 'Invalid token payload' });
 		}
 
-		req.user = {
+		req.currentUser = {
 			id: payload.id,
 			name: payload.name,
 			username: payload.username,
