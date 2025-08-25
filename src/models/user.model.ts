@@ -1,16 +1,11 @@
-import { model, Document } from 'mongoose';
+import { model } from 'mongoose';
 import bcrypt from 'bcryptjs';
 
 import { type User } from '../types/user';
 import { UserSchema } from '../schemas/user.schema';
 
-export interface UserDocument extends Omit<User, '_id'>, Document {
-	comparePassword(password: string): Promise<boolean>;
-}
-
-
 // Middleware (hook) para hashear la contraseña antes de guardarla
-UserSchema.pre<UserDocument>('save', async function (next) {
+UserSchema.pre<User>('save', async function (next) {
 	if (!this.isModified('password')) return next();
 
 	const salt = await bcrypt.genSalt(10);
@@ -23,4 +18,4 @@ UserSchema.methods.comparePassword = async function (password: string): Promise<
 	return await bcrypt.compare(password, this.password);
 };
 
-export const UserModel = model<UserDocument>('User', UserSchema);
+export const UserModel = model<User>('User', UserSchema);

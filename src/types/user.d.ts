@@ -1,9 +1,10 @@
-import { ObjectId } from 'mongodb';
+import { Document, ObjectId } from 'mongodb';
 
-export interface User {
+export interface User extends Document {
 	_id: ObjectId;
 	username: string;
 	password: string;
-  name: string;
+	name: string;
 	role: 'user' | 'admin';
+	comparePassword(password: string): Promise<boolean>;
 }
