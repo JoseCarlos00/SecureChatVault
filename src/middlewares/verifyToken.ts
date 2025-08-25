@@ -1,26 +1,35 @@
 import {Request, Response, NextFunction} from 'express';
 import { verifyAccessToken } from '../utils/token'
+import { findUserById } from '../services/user.service'
 
-export const verifyToken = (req: Request, res: Response, next: NextFunction) => {
+export const verifyToken = async (req: Request, res: Response, next: NextFunction) => {
 	const authHeader = req.header('Authorization');
 	const token = authHeader?.split(' ')[1];
 
 	if (!token) return res.status(401).json({ error: 'Access token missing' });
 
-	try { 
-		 const payload = verifyAccessToken(token);
+	try {
+		const payload = verifyAccessToken(token);
 
 		// Aseguramos que el payload del token tiene la estructura que esperamos
 		if (typeof payload !== 'object' || !payload.username || !payload.role) {
 			return res.status(401).json({ error: 'Invalid token payload' });
 		}
 
+		const getUser = await findUserById(payload.id);
+
+		if (!getUser) {
+			return res.status(404).json({ error: 'User not found' });
+		}
+
 		req.currentUser = {
-			id: payload.id,
-			name: payload.name,
-			username: payload.username,
-			role: payload.role,
+			id: getUser._id.toString(),
+			name: getUser.name,
+			username: getUser.username,
+			role: getUser.role,
 		};
+
+		// console.log({ payload, getUser, currentUser: req.currentUser });
 
 		next();
 	} catch (error: any) {
