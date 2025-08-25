@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getMessagesFromDB } from '../services/messages.service';
+import { getMessagesFromDB, updateReactionFromDB, updateReplyToFromDB } from '../services/messages.service';
 
 export const findMessages = async (req: Request, res: Response) => {
 	try {
@@ -23,5 +23,41 @@ export const findMessages = async (req: Request, res: Response) => {
 		});
 	} catch (error) {
 		res.status(500).json({ message: 'Error fetching messages', error: (error as Error).message });
+	}
+};
+
+export const updateReaction = async (req: Request, res: Response) => {
+	try {
+		const { id } = req.params;
+		const { reactionEmoji } = req.body;
+
+		const updatedMessage = await updateReactionFromDB(id, reactionEmoji)
+
+		if (!updatedMessage) {
+			return res.status(404).json({ message: 'Mensaje no encontrado' });
+		}
+
+		res.status(200).json(updatedMessage);
+	} catch (error) {
+		console.error('Error al actualizar la reacción:', error);
+		res.status(500).json({ message: 'Error interno del servidor' });
+	}
+};
+
+export const updateReplyTo = async (req: Request, res: Response) => {
+	try {
+		const { id } = req.params;
+		const { replyTo } = req.body;
+
+		const updatedMessage = await updateReplyToFromDB(id, replyTo)
+
+		if (!updatedMessage) {
+			return res.status(404).json({ message: 'Mensaje no encontrado' });
+		}
+
+		res.status(200).json(updatedMessage);
+	} catch (error) {
+		console.error('Error al actualizar la referencia de respuesta:', error);
+		res.status(500).json({ message: 'Error interno del servidor' });
 	}
 };

@@ -1,6 +1,5 @@
 import { Router } from 'express';
-import { findMessages } from '../controllers/messages.controller';
-import { updateReaction, updateReplyTo } from '../controllers/upload.controller';
+import { findMessages, updateReaction, updateReplyTo } from '../controllers/messages.controller';
 import { checkAdminRole } from '../middlewares/auth.middleware';
 
 const router = Router();

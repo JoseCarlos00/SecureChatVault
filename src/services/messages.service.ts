@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 
 interface GetMessagesOptions {
 	limit?: number;
-	beforeId?: string; // nuevo
+	beforeId?: string;
 	startDate?: string;
 	endDate?: string;
 }
@@ -45,4 +45,12 @@ export const getMessagesFromDB = async (options: GetMessagesOptions) => {
 		.exec();
 
 	return { messages: messages.reverse(), total };
+};
+
+export const updateReactionFromDB = async (id: string, reactionEmoji: string) => {
+	return MessageModel.findByIdAndUpdate(id, { reactionEmoji }, { new: true });
+};
+
+export const updateReplyToFromDB = async (id: string, replyTo: string) => {
+	return MessageModel.findByIdAndUpdate(id, { replyTo }, { new: true });
 };
