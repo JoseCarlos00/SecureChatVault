@@ -1,11 +1,10 @@
-import { AuthPayload } from "../authPayload";
+import { type AuthPayload } from '../authPayload';
 
+// Extiende la interfaz Request de Express para incluir la propiedad currentUser
 declare global {
 	namespace Express {
-		export interface Request {
-			currentUser?: AuthPayload; // Añadimos el tipo AuthPayload al objeto Request
+		interface Request {
+			currentUser?: AuthPayload;
 		}
 	}
 }
-
-export {}
