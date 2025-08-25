@@ -28,7 +28,7 @@ export const login = async (req: Request, res: Response) => {
 
 		// 3. Crear el payload para los tokens con la información del usuario de la BD.
 		const payload: AuthPayload = {
-			id: user._id || user.id, // Aseguramos que usamos el ID correcto
+			id: user._id.toString() || user.id, // Aseguramos que usamos el ID correcto
 			username: user.username,
 			role: user.role,
 			name: user.name,
