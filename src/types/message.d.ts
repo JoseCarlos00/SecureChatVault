@@ -1,4 +1,6 @@
-export interface BaseMessage {
+import { Document } from "mongoose"
+
+export interface BaseMessage extends Document {
 	sender: 'me' | 'other';
 	timestamp: Date;
 	replyTo?: string; // Optional reference to another message's _id
