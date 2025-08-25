@@ -48,7 +48,7 @@ export const login = async (req: Request, res: Response) => {
 		res.json({ accessToken, message: 'Inicio de sesión exitoso' });
 	} catch (error) {
 		console.error('Login error:', error);
-		res.status(500).json({ message: 'Ocurrió un error interno en el servidor' });
+		res.status(500).json({ message: 'Error interno del servidor' });
 	}
 };
 
@@ -75,10 +75,33 @@ export const refreshToken = (req: Request, res: Response) => {
 };
 
 export const logout = (_req: Request, res: Response) => {
-	res.clearCookie('refreshToken', {
-		httpOnly: true,
-		sameSite: 'none',
-		secure: true,
-	});
-	res.status(200).json({ message: 'Sesión cerrada exitosamente' });
+	try {
+		res.clearCookie('refreshToken', {
+			httpOnly: true,
+			sameSite: 'none',
+			secure: true,
+		});
+		res.status(200).json({ message: 'Sesión cerrada exitosamente' });
+	} catch (error) {
+		console.error('Logout error:', error);
+		res.status(500).json({ message: 'Error interno del servidor' });
+	}
 };
+
+export const registerUser = async (req: Request, res: Response) => {
+	try {
+		const {username} = req.body;
+
+		const usernameExists = await UserModel.findOne({ username });
+
+		if (!usernameExists) return res.status(400).json({ message: 'Username already exists'})
+		
+		const newUser = new UserModel(req.body);
+		await newUser.save();
+		res.status(201).json(newUser);
+
+	} catch (error) {
+		console.error('Error al registrar el usuario:', error);
+		res.status(500).json({ message: 'Error interno del servidor' });
+	}
+}
