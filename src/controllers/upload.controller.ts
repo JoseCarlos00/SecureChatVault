@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 
 import { parseWhatsAppChat } from '../services/parser.service';
-import { uploadToCloudService } from '../services/localStorage.service';
+import { uploadToCloudService } from '../services/cloudinary.service';
 
 import { MessageModel } from '../models/message.models';
 
