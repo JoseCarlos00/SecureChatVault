@@ -1,4 +1,5 @@
 import type { Message, TextMessage, MediaMessage } from '../types/message';
+import path from 'path';
 
 // Expresión regular mejorada para manejar el espacio después de la hora
 const messageRegex = /^(\d{1,2}\/\d{1,2}\/\d{2,4}),\s(\d{1,2}:\d{2})\s?(am|pm)\s?-\s(.*?):\s(.*)/;
@@ -119,9 +120,10 @@ const createMessageObject = (
 		} as TextMessage;
 	} else {
 		const filename = content.split(' ').slice(0, -2).join(' ');
+		const originalFileName = path.parse(filename).name;
 
 		// Busca en el array `mediaUrls` para encontrar la URL que coincide
-		const mediaUrlObject = mediaUrls.find((m) => m.filename.includes(filename));
+		const mediaUrlObject = mediaUrls.find((m) => m.filename.includes(originalFileName));
 		
 		// Define la URL de tu imagen de reemplazo.
     // Asegúrate de que esta imagen esté accesible desde tu servidor.
@@ -130,10 +132,8 @@ const createMessageObject = (
     // Asigna la URL de la imagen de reemplazo si no se encuentra la URL real.
     const mediaUrl = mediaUrlObject ? mediaUrlObject.url : placeholderUrl;
 
-		// console.log({ mediaUrl, placeholderUrl, filename });
+		// console.log({ mediaUrl, placeholderUrl, filename, originalFileName });
 		
-		// const mediaUrl = mediaUrlObject ? mediaUrlObject.url : '';
-
 		return {
 			...commonProps,
 			type: messageType as 'image' | 'audio' | 'video' | 'sticker',
