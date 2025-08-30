@@ -19,11 +19,7 @@ export const verifyToken = async (req: Request, res: Response, next: NextFunctio
 		const getUser = await findUserById(payload.id);
 
 		if (!getUser) {
-<<<<<<< HEAD
 			return res.status(400);
-=======
-			return res.status(404).json({ error: 'User not found' });
->>>>>>> 584ace55275027a93f9bd9a535bfd0b71e7305e9
 		}
 
 		req.currentUser = {
