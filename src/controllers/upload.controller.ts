@@ -11,7 +11,20 @@ interface MediaURl {
 	url: string;
 }
 
-async function saveMessages(parsedMessages: Message[]) {
+async function saveMessages(parsedMessages: any[]) {
+	// Asegúrate de que parsedMessages es un array de mensajes válidos.
+	if (!Array.isArray(parsedMessages) || parsedMessages.length === 0) {
+		throw new Error('No messages to save.');
+	}
+
+	// 1. Borra todos los mensajes anteriores para evitar duplicados.
+	await MessageModel.deleteMany({});
+
+	// 2. Inserta los nuevos mensajes parseados en la base de datos.
+	await MessageModel.insertMany(parsedMessages);
+}
+
+async function saveMessages2(parsedMessages: Message[]) {
 	if (!Array.isArray(parsedMessages) || parsedMessages.length === 0) {
 		throw new Error('No messages to save.');
 	}
@@ -54,6 +67,7 @@ export const processUploads = async (req: Request, res: Response) => {
 
 		const { myUserName } = req.body;
 
+		// Es mejor validar explícitamente los campos requeridos.
 		if (!myUserName) {
 			return res.status(400).json({ message: 'El campo "myUserName" es requerido en el cuerpo de la solicitud.' });
 		}

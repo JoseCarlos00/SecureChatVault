@@ -15,8 +15,6 @@ interface ParseWhatsAppChatOptions {
 	mediaUrls: MediaURl[];
 }
 
-
-
 export const parseWhatsAppChat = ({ chatContent, myUserName, mediaUrls }: ParseWhatsAppChatOptions): Message[] => {
 	console.log('Parsing WhatsApp chat content...');
 	console.log(`Chat content length: ${chatContent.length} characters`);

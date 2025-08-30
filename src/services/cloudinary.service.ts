@@ -42,7 +42,7 @@ export async function uploadToCloudService(file: Express.Multer.File | null): Pr
 			stream.end(file.buffer);
 		});
 
-		console.log('Cloudinary:', response);
+		// console.log('Cloudinary:', response);
 
 		return response;
 	} catch (error) {
