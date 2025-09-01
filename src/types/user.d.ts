@@ -6,5 +6,6 @@ export interface User extends Document {
 	password: string;
 	name: string;
 	role: 'user' | 'admin';
+	senderName: string;
 	comparePassword(password: string): Promise<boolean>;
 }

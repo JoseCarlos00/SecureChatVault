@@ -32,6 +32,7 @@ export const login = async (req: Request, res: Response) => {
 			username: user.username,
 			role: user.role,
 			name: user.name,
+			senderName: user.senderName,
 		};
 
 		const accessToken = generateAccessToken(payload);
@@ -65,6 +66,7 @@ export const refreshToken = (req: Request, res: Response) => {
 			username: payload.username,
 			role: payload.role,
 			name: payload.name,
+			senderName: payload.senderName,
 		};
 		const accessToken = generateAccessToken(newPayload);
 		res.json({ accessToken, message: 'Token refrescado exitosamente' });

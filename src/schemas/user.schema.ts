@@ -23,6 +23,10 @@ export const UserSchema = new Schema(
 			type: String,
 			required: [true, 'El nombre es obligatorio'],
 		},
+		senderName: {
+			type: String,
+			required: [true, 'El nombre del remitente es obligatorio'],
+		},
 	},
 	{ timestamps: true }
 );
