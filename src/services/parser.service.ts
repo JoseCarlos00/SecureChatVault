@@ -96,9 +96,10 @@ const createMessageObject = (
 	mediaUrls: MediaURl[]
 ): Message => {
 	const commonProps = {
-		sender: sender.toLowerCase() === myUserName.toLowerCase() ? ('me' as const) : ('other' as const),
-		timestamp: timestamp,
+		sender,
+		timestamp,
 	};
+
 
 	const messageType = getMessageType(content);
 

@@ -11,8 +11,7 @@ export const BaseMessageSchema = new Schema(
 	{
 		sender: {
 			type: String,
-			enum: { values: ['me', 'other'], message: '{VALUE} no es un valor válido' },
-			required: true,
+			required: [true, 'El remitente es obligatorio']
 		},
 		timestamp: { type: Date, required: [true, 'El timestamp es obligatorio'] },
 		replyTo: { type: Schema.Types.ObjectId, ref: 'Message', required: false },
