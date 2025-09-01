@@ -1,4 +1,5 @@
 import type { Message, TextMessage, MediaMessage } from '../types/message';
+import { placeholderUrl } from '../utils/constants';
 import path from 'path';
 
 // Expresión regular mejorada para manejar el espacio después de la hora
@@ -122,10 +123,6 @@ const createMessageObject = (
 
 		// Busca en el array `mediaUrls` para encontrar la URL que coincide
 		const mediaUrlObject = mediaUrls.find((m) => m.filename.includes(originalFileName));
-		
-		// Define la URL de tu imagen de reemplazo.
-    // Asegúrate de que esta imagen esté accesible desde tu servidor.
-    const placeholderUrl = 'https://localhost:3000/uploads/imagen-rota.webp';
 		
     // Asigna la URL de la imagen de reemplazo si no se encuentra la URL real.
     const mediaUrl = mediaUrlObject ? mediaUrlObject.url : placeholderUrl;
