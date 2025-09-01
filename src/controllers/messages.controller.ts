@@ -1,5 +1,10 @@
 import { Request, Response } from 'express';
-import { getMessagesFromDB, updateReactionFromDB, updateReplyToFromDB } from '../services/messages.service';
+import {
+	getMessagesFromDB,
+	updateReactionFromDB,
+	updateReplyToFromDB,
+	findFirstMessageOnDateFromDB,
+} from '../services/messages.service';
 
 export const findMessages = async (req: Request, res: Response) => {
 	try {
@@ -65,3 +70,18 @@ export const updateReplyTo = async (req: Request, res: Response) => {
 		res.status(500).json({ message: 'Error interno del servidor' });
 	}
 };
+
+export const findFirstMessageOnDate = async (req: Request, res: Response) => {
+	try {
+		const { date } = req.query as { date: string };
+		if (!date) {
+			return res.status(400).json({ message: 'El parámetro "date" es requerido.' });
+		}
+		const message = await findFirstMessageOnDateFromDB(date);
+		console.log({ message });
+		
+		res.status(200).json({ messageId: message?._id?.toString() || null });
+	} catch (error) {
+		res.status(500).json({message: 'Error fetching first message on date', error: (error as Error).message})
+	}
+}

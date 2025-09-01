@@ -18,15 +18,15 @@ export const getMessagesFromDB = async (options: GetMessagesOptions) => {
 	if (startDate || endDate) {
 		baseQuery.timestamp = {};
 		if (startDate) {
-			// Incluye desde el inicio del día de startDate (00:00:00 UTC)
-			const start = new Date(startDate);
-			start.setUTCHours(0, 0, 0, 0);
+			// Asegura que la fecha se interprete en la zona horaria local del servidor
+			// y no en UTC, para que coincida con la perspectiva del usuario.
+			const start = new Date(`${startDate}T00:00:00`);
 			baseQuery.timestamp.$gte = start;
 		}
 		if (endDate) {
-			// Incluye hasta el final del día de endDate (23:59:59 UTC)
-			const end = new Date(endDate);
-			end.setUTCHours(23, 59, 59, 999);
+			// Se establece el final del día en la zona horaria local.
+			const end = new Date(`${endDate}T00:00:00`);
+			end.setHours(23, 59, 59, 999);
 			baseQuery.timestamp.$lte = end;
 		}
 	}
@@ -57,4 +57,24 @@ export const updateReactionFromDB = async (id: string, reactionEmoji: string) =>
 
 export const updateReplyToFromDB = async (id: string, replyTo: string) => {
 	return MessageModel.findByIdAndUpdate(id, { replyTo }, { new: true });
+};
+
+export const findFirstMessageOnDateFromDB = async (date: string) => {
+	// Al construir la fecha de esta manera, nos aseguramos de que se interprete
+	// en la zona horaria local del servidor, que es lo que el usuario espera.
+	// '2025-06-05' se convierte en una fecha local, no UTC.
+	const startDate = new Date(`${date}T00:00:00`);
+
+	// Para obtener el final del día, creamos una copia y ajustamos las horas.
+	const endDate = new Date(startDate);
+	endDate.setHours(23, 59, 59, 999);
+
+	return MessageModel.findOne({
+		timestamp: {
+			$gte: startDate,
+			$lte: endDate,
+		},
+	}).sort({
+		timestamp: 1,
+	});
 };
