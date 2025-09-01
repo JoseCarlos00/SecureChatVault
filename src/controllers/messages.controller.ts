@@ -3,18 +3,22 @@ import { getMessagesFromDB, updateReactionFromDB, updateReplyToFromDB } from '..
 
 export const findMessages = async (req: Request, res: Response) => {
 	try {
-		// 1. Obtener los query parameters de la URL y convertirlos a números
-		const limit = parseInt(req.query.limit as string) || 30; // Default a 20 mensajes
-		const beforeId = req.query.beforeId as string; 
-		const startDate = req.query.startDate as string;
-		const endDate = req.query.endDate as string;
+		// 1. Obtener y validar los query parameters de la URL.
+		const { beforeId, startDate, endDate } = req.query as { beforeId?: string; startDate?: string; endDate?: string };
 
-		// console.log(req.query);
+		// Validación más robusta para 'limit'
+		let limit = 30;
+		
+		if (req.query.limit && typeof req.query.limit === 'string') {
+			const parsedLimit = parseInt(req.query.limit, 10);
+			if (!isNaN(parsedLimit) && parsedLimit > 0) {
+				limit = parsedLimit;
+			}
+		}
 
 		// 2. Llamar al servicio, pasándole los parámetros
 		const { messages, total } = await getMessagesFromDB({ limit, beforeId, startDate, endDate });
 
-		// 3. Enviar la respuesta con los datos y la metadata de la pagination
 		res.status(200).json({
 			messages,
 			total,
