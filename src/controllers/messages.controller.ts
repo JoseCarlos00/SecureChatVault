@@ -73,15 +73,20 @@ export const updateReplyTo = async (req: Request, res: Response) => {
 
 export const findFirstMessageOnDate = async (req: Request, res: Response) => {
 	try {
-		const { date } = req.query as { date: string };
+		const { date } = req.query as { date?: string };
 		if (!date) {
 			return res.status(400).json({ message: 'El parámetro "date" es requerido.' });
 		}
-		const message = await findFirstMessageOnDateFromDB(date);
-		console.log({ message });
-		
-		res.status(200).json({ messageId: message?._id?.toString() || null });
+
+		// El segundo parámetro opcional define cuántos mensajes de contexto queremos.
+		const { messages, targetMessageId } = await findFirstMessageOnDateFromDB(date, 20);
+
+		if (!targetMessageId) {
+			return res.status(404).json({ message: 'No se encontraron mensajes para la fecha especificada.' });
+		}
+
+		res.status(200).json({ messages, targetMessageId });
 	} catch (error) {
-		res.status(500).json({message: 'Error fetching first message on date', error: (error as Error).message})
+		res.status(500).json({ message: 'Error al buscar mensajes por fecha', error: (error as Error).message });
 	}
-}
+};

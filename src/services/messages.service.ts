@@ -59,22 +59,59 @@ export const updateReplyToFromDB = async (id: string, replyTo: string) => {
 	return MessageModel.findByIdAndUpdate(id, { replyTo }, { new: true });
 };
 
-export const findFirstMessageOnDateFromDB = async (date: string) => {
-	// Al construir la fecha de esta manera, nos aseguramos de que se interprete
-	// en la zona horaria local del servidor, que es lo que el usuario espera.
-	// '2025-06-05' se convierte en una fecha local, no UTC.
+export const findFirstMessageOnDateFromDB = async (date: string, contextLimit: number = 20) => {
+	// 1. Construir el rango de fechas para la búsqueda.
+	// Se interpreta la fecha en la zona horaria local del servidor.
 	const startDate = new Date(`${date}T00:00:00`);
-
-	// Para obtener el final del día, creamos una copia y ajustamos las horas.
 	const endDate = new Date(startDate);
 	endDate.setHours(23, 59, 59, 999);
 
-	return MessageModel.findOne({
+	// 2. Encontrar el primer mensaje en la fecha especificada.
+	// Usamos .lean() para un mejor rendimiento, ya que solo necesitamos los datos.
+	const firstMessage = await MessageModel.findOne({
 		timestamp: {
 			$gte: startDate,
 			$lte: endDate,
 		},
-	}).sort({
-		timestamp: 1,
-	});
+	})
+		.sort({ timestamp: 1 }) // El más antiguo primero
+		.lean()
+		.exec();
+
+	// 3. Si no se encuentra ningún mensaje, devolver un resultado vacío.
+	if (!firstMessage) {
+		return { messages: [], targetMessageId: null };
+	}
+
+	const targetMessageId = firstMessage._id;
+
+	// 4. Obtener los mensajes ANTERIORES al mensaje encontrado.
+	// Se buscan los `contextLimit` mensajes con un _id menor.
+	const messagesBefore = await MessageModel.find({
+		_id: { $lt: targetMessageId },
+	})
+		.sort({ _id: -1 }) // Orden descendente para obtener los más cercanos
+		.limit(contextLimit)
+		.populate('replyTo')
+		.lean() // Usar lean() para consistencia y rendimiento
+		.exec();
+
+	// 5. Obtener el mensaje encontrado y los mensajes POSTERIORES.
+	// Se buscan el mensaje target y los `contextLimit` mensajes con un _id mayor o igual.
+	const messagesAfter = await MessageModel.find({
+		_id: { $gte: targetMessageId },
+	})
+		.sort({ _id: 1 }) // Orden ascendente para obtener los siguientes
+		.limit(contextLimit + 1) // +1 para incluir el mensaje target
+		.populate('replyTo')
+		.lean() // Usar lean() para consistencia y rendimiento
+		.exec();
+
+	// 6. Combinar los resultados.
+	// `messagesBefore` está en orden inverso (del más nuevo al más antiguo),
+	// por lo que se invierte para mantener el orden cronológico.
+	const combinedMessages = [...messagesBefore.reverse(), ...messagesAfter];
+
+	// 7. Devolver los mensajes y el ID del mensaje buscado.
+	return { messages: combinedMessages, targetMessageId: targetMessageId.toString() };
 };
